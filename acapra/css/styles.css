@@ -40,6 +40,11 @@ nav ul{
     font-family: var(--font-principal);
 }
 
+.btnEntrar a{
+    color: white;
+    text-decoration: none;
+}
+
 .iconEntrar{
     background-color: white;
     width: 130px;
