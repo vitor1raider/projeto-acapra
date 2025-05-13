@@ -57,3 +57,8 @@ form button {
     margin-top: 10px;
     justify-content: center;
 }
+
+form button a{
+    color: white;
+    text-decoration: none;
+}
