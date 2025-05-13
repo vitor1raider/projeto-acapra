@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+.container {
+    display: flex; 
+    height: 100vh;
+}
+
+.fundo-login {
+    width: 500px;
+    height: 500px;
+    background-color: transparent;
+    border: 1px solid rgb(0, 0, 0);
+    margin: auto;
+    text-align: center;
+}
+
+.title-login h1 {
+    margin-top: 30px;
+}
+
+.subtitle-login { 
+    margin-top: 50px;
+}
+
+.form-login form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+    text-align: left;
+    margin-top: 50px;
+    gap: 10px;
+    font-size: 14px;
+}
+
+form input {
+    height: 35px;
+    border: 1px solid black;
+    outline: #ccc;
+    padding-left: 5px;
+}
+
+form button {
+    text-align: center;
+    height: 40px;
+    width: 300px;
+    background-color: black;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    justify-content: center;
+}

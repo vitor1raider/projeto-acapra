@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acapra</title>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Página home - ACAPRA -->
+    <div class="bg-principal">
+        <div class="container gx-0">
+            <header class="d-flex align-items-center justify-content-between">
+                <div class="img-logo">
+                    <img src="img/logo roxa resize2.png" alt="img-logo">
+                </div>
+                <nav>
+                    <ul class="list-unstyled d-flex">
+                        <div class="iconEntrar d-flex align-items-center justify-content-end position-relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-box-arrow-in-right position-absolute" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                          </svg></div>
+                        <div class="btnEntrar d-flex align-items-center justify-content-center position-absolute">
+                            <li>Entrar</li>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="d-flex justify-content-between align-items-end">
+                    <div class="info-ong">
+                        <h1>Associação Brusquense de Proteção aos Animais (ACAPRA)</h1>
+                        <p>Salve uma vida, adote um amigo.</p>
+                        <button>Adote um bichano</button>
+                    </div>
+                    <div class="img-cachorro">
+                        <div class="efeito position-absolute"></div>
+                        <img class="position-relative" src="img/cachorro-principal.png" alt="img-cachorro-principal">
+                    </div>
+                </div>
+                <div class="divisor"></div>
+            </main>
+        </div>
+    </div>
+    <!-- Final home -->
+    <!-- Inicio filtro/cards -->
+    <section>
+        <div class="container">
+            <h2 class="subtitle mb-0 mt-5">Animais em busca de uma nova família</h2>
+            <div class="d-flex">
+                <div class="bar position-relative"></div>
+                <div class="barSecondary position-absolute"></div>
+            </div>
+            <div class="d-flex gap-2 mt-3">
+                <div class="bar-categoria"></div>
+                <span>Filtrar por categoria</span>
+            </div>
+            <div class="filtro-categoria">
+                <ul class="list-unstyled d-flex justify-content-between pt-3">
+                    <li class="d-flex align-items-center gap-2">Tipo: 
+                        <select name="tipo" id="tipo" class="form-select">
+                            <option value="selecione">Selecione</option>
+                            <option value="gato">Gato</option>
+                            <option value="cachorro">Cachorro</option>
+                        </select>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">Sexo: 
+                        <select name="sexo" id="sexo" class="form-select">
+                            <option value="selecione">Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                        </select>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">Tamanho: 
+                        <select name="tamanho" id="tamanho" class="form-select">
+                            <option value="selecione">Selecione</option>
+                        </select>
+                    </li>
+                    <li class="d-flex align-items-center gap-2">Idade: 
+                        <select name="idade" id="idade" class="form-select">
+                            <option value="selecione">Selecione</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-between gap-2">
+                <div class="card-img d-flex flex-column">
+                    <div class="box-img">
+                        <img src="img/mimi.PNG" alt="Difusor">
+                    </div>
+                    <div class="info-pet p-2">
+                        <h3>Mimi</h3>
+                        <div class="d-flex gap-1">
+                            <p class="filtro-femea">Fêmea</p>
+                            <p class="filtro-idade">+1 ano</p>
+                        </div>
+                        <button>Conhecer mais</button>
+                    </div>
+                </div>
+                <div class="card-img d-flex flex-column">
+                    <div class="box-img">
+                        <img src="img/barto.PNG" alt="Bartô">
+                    </div>
+                    <div class="info-pet p-2">
+                        <h3>Bartô</h3>
+                        <div class="d-flex gap-1">
+                            <p class="filtro-macho">Macho</p>
+                            <p class="filtro-idade">+3 meses</p>
+                        </div>
+                        <button>Conhecer mais</button>
+                    </div>
+                </div>
+                <div class="card-img d-flex flex-column">
+                    <div class="box-img">
+                        <img src="img/maia.PNG" alt="Maia">
+                    </div>
+                    <div class="info-pet p-2">
+                        <h3>Maia</h3>
+                        <div class="d-flex gap-1">
+                            <p class="filtro-femea">Fêmea</p>
+                            <p class="filtro-idade">+1 ano</p>
+                        </div>
+                        <button>Conhecer mais</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-end justify-content-end mt-2">
+                <p><u>Ver todos</u></p>
+            </div>
+        </div>
+    </section>
+    <!-- Final filtro/cards -->
+    <footer class="text-center mt-5">
+        <span class="text-center fw-bold fs-2">Ajude nossa causa!</span>
+        <div style="background-color: #EDE2CC; width: 100%; height: 200px;">
+            <div class="container">
+                <div style="max-width: 38%; position: relative;">
+                    <p>Doações nos permitem ajudar o máximo de animais possível. Juntos, podemos fazer a diferença!</p>
+                    <p class="fw-bolder">CNP: 03.772.251.0001-82</p>
+                </div>
+            </div>
+        </div>
+        <div style="background-color: #555086; width: 100%; height: 50px;"></div>
+    </footer>
+</body>
+</html>
