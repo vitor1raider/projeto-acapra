@@ -20,7 +20,7 @@
     background-size: cover;
     background-position: -150px;
     background-repeat: no-repeat;
-    width: 350px;
+    width: 450px;
     height: auto;
     border: 1px solid rgb(0 0 0 / 16%);
     margin: auto;
@@ -83,4 +83,10 @@ form button a{
 
 .form-button {
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .fundo-login {
+        width: 350px;
+    }
 }
