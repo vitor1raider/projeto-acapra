@@ -1,0 +1,89 @@
+/* Importação de fontes */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* Reset e fonte padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilização geral */
+body {
+  background-color: #f0f2f5;
+  color: #212529;
+}
+
+/* Título da página */
+h1 {
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 2rem;
+}
+
+/* Cards */
+.card {
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Lista de últimos animais */
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Sidebar */
+.text-bg-black {
+  background-color: #1e1e1e !important;
+  color: white;
+}
+
+/* Sidebar links */
+.nav-link.active {
+  background-color: #2c2c2c;
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+.nav-link.active:hover {
+  background-color: #3d3d3d;
+}
+
+/* Inputs e selects focados */
+.form-control:focus,
+.form-select:focus {
+  border-color: #5550865b !important;
+  box-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column;
+  }
+
+  .text-bg-black {
+    width: 100%;
+    min-height: auto;
+  }
+}
