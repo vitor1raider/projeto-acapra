@@ -36,8 +36,8 @@
                 </div>
                 <div class="d-flex align-items-end gap-2 w-100">
                     <div class="w-100">
-                        <label for="renda">Qual sua renda?</label>
-                        <input class="form-control shadow-none" type="text" name="renda" id="renda" required>
+                        <label for="endereco">Qual seu endereço completo? (Rua, CEP, número da casa e ponto de referência)</label>
+                        <input class="form-control shadow-none" type="text" name="endereco" id="endereco" required>
                     </div>
                     <div class="w-100">
                         <label for="moradia">Você mora em casa ou apartamento? Próprio ou alugado?</label>
@@ -50,8 +50,8 @@
                         <input class="form-control shadow-none" type="text" name="outrosAnimais" id="outrosAnimais">
                     </div>
                     <div class="w-100">
-                        <label for="endereco">Qual seu endereço completo? (Rua, CEP, número da casa e ponto de referência)</label>
-                        <input class="form-control shadow-none" type="text" name="endereco" id="endereco" required>
+                        <label for="renda">Qual sua renda?</label>
+                        <input class="form-control shadow-none" type="text" name="renda" id="renda" required>
                     </div>
                 </div>
                 <div class="w-100">
@@ -62,7 +62,7 @@
                     <div class="d-flex flex-column w-100">
                         <label for="telaProtecao">A sua residência tem telas de proteção?</label>
                         <select class="form-select shadow-none" name="telaProtecao" id="telaProtecao">
-                            <option value=""></option>
+                            <option value="" selected disabled>Selecione uma opção*</option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
                         </select>
@@ -70,7 +70,7 @@
                     <div class="d-flex flex-column w-100">
                         <label for="acessoRua">Você deixaria o gato/cachorro ter acesso a rua? Dar "voltinhas"?</label>
                         <select class="form-select shadow-none" name="acessoRua" id="acessoRua">
-                            <option value=""></option>
+                            <option value="" selected disabled>Selecione uma opção*</option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
                         </select>
@@ -80,7 +80,7 @@
                 <div class="d-flex flex-column w-100">
                     <label for="castradosVacinados">Seus animais são castrados e vacinados?</label>
                     <select class="form-select shadow-none" name="castradosVacinados" id="castradosVacinados">
-                        <option value=""></option>
+                        <option value="" selected disabled>Selecione uma opção*</option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -88,7 +88,7 @@
                 <div class="d-flex flex-column w-100">
                     <label for="moradoresAdotante">Todos da sua residência, concordam com a adoção?</label>
                     <select class="form-select shadow-none" name="moradoresAdotante" id="moradoresAdotante">
-                        <option value=""></option>
+                        <option value="" selected disabled>Selecione uma opção*</option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -98,7 +98,7 @@
                 <div class="d-flex flex-column w-100">
                     <label for="castracaoObrigatoria">A castração e vacinação do animal é <b>OBRIGATÓRIA</b>, você concorda com isso?</label>
                     <select class="form-select shadow-none" name="castracaoObrigatoria" id="castracaoObrigatoria">
-                        <option value=""></option>
+                        <option value="" selected disabled>Selecione uma opção*</option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
@@ -106,12 +106,11 @@
                 <div class="d-flex flex-column w-100">
                     <label for="taxa">Há uma taxa de adoção colaborativa de R$30,00. Você concorda em contribuir?</label>
                     <select class="form-select shadow-none" name="taxa" id="taxa">
-                        <option value=""></option>
+                        <option value="" selected disabled>Selecione uma opção*</option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
-            </div>
             </div>
         </div>
     </div>
