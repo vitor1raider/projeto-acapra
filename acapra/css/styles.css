@@ -236,6 +236,59 @@ button{
     width: 100px;
 }
 
+/* SOBRE NOS */
+
+.sobre-nos {
+    background-color: #fff;
+    padding-top: 5%;
+    padding-bottom: 3%;
+}
+  
+.titulo-sobrenos {
+    font-weight: bold;
+    color: #5A4D9D;
+    font-size: 48px;
+    position: relative;
+}
+
+.texto-sobrenos {
+    padding-top: 2%;
+    font-size: 30px;
+    text-align: justify;
+}
+  
+.imagem-circular {
+    border: 5px solid #5A4D9D;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+}
+  
+.imagem-circular img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .barSecondary {
+        width: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #card-pets {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 992px) {
+    ul {
+        flex-direction: column;
+    }
+}
+
 @media (max-width: 1024px) {
     .img-cachorro {
         display: none;
@@ -250,50 +303,34 @@ button{
     }
 }
 
-@media (max-width: 992px) {
-    ul {
-        flex-direction: column;
+@media (max-width: 1200px) {
+
+    .info-ong p {
+        margin-top: 3%;
+    }
+
+    .info-ong button {
+        margin-top: 100px;
+    }
+
+    .titulo-sobrenos {
+        font-size: 36px !important;
+    }
+
+    .texto-sobrenos {
+        font-size: 17px !important;
+    }
+
+    .imagem-circular {
+        width: 400px !important;
+        height: 300px !important;
+    }
+
+    .footer-esquerda p {
+        font-size: medium !important;
+    }
+
+    .footer-esquerda p:nth-child(2){
+        font-size: larger !important; 
     }
 }
-
-@media (max-width: 768px) {
-    #card-pets {
-        flex-direction: column;
-    }
-}
-
-
-/* SOBRE NOS */
-
-.sobre-nos {
-    background-color: #fff;
-    padding-top: 5%;
-    padding-bottom: 3%;
-  }
-  
-.titulo-sobrenos {
-    font-weight: bold;
-    color: #5A4D9D;
-    font-size: 48px;
-    position: relative;
-  }
-
-.texto-sobrenos {
-    padding-top: 2%;
-    font-size: 30px;
-    text-align: justify;
-}
-  
-.imagem-circular {
-    border: 5px solid #5A4D9D;
-    border-radius: 50%;
-    overflow: hidden;
-    width: 500px;
-    height: 500px;
-  }
-  
-.imagem-circular img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
