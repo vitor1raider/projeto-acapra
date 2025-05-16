@@ -271,6 +271,32 @@ button{
     object-fit: cover;
 }
 
+/* Processo adoção */
+
+.titulo-adocao {
+    font-weight: bold;
+    color: #5A4D9D;
+    font-size: 48px;
+    position: relative;
+}
+
+.texto-adocao {
+    padding-top: 2%;
+    font-size: 30px;
+    text-align: justify;
+}
+
+.adocao {
+    background-color: #EDE2CC;
+    padding: 5%;
+}
+
+.imagem-adocao {
+    overflow: hidden;
+    width: 450px;
+    height: 600px;
+}
+
 @media (max-width: 600px) {
     .barSecondary {
         width: 0 !important;
