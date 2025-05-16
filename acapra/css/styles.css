@@ -336,6 +336,14 @@ button{
 }
 
 @media (max-width: 1366px) {
+    .footer-esquerda p {
+        font-size: medium !important;
+    }
+
+    .footer-esquerda p:nth-child(2){
+        font-size: larger !important; 
+    }
+    
     .titulo-sobrenos {
         font-size: 42px !important;
     }
