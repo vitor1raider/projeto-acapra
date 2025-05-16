@@ -334,3 +334,13 @@ button{
         font-size: larger !important; 
     }
 }
+
+@media (max-width: 1366px) {
+    .titulo-sobrenos {
+        font-size: 42px !important;
+    }
+
+    .texto-sobrenos {
+        font-size: 20px !important;
+    }
+}
