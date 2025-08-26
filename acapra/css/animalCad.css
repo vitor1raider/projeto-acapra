@@ -6,11 +6,12 @@ body {
 }
 
 .adocao-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 40px auto;
-  background-color: #f6eddc;
+  background-color: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -87,6 +88,7 @@ body {
 .arrow.right {
   right: 15px;
 }
+
 a {
   text-decoration: none;
   color: inherit;
