@@ -1,15 +1,20 @@
 /* Página home */
-@import url("httpv://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 .a {
   text-decoration: none;
   color: inherit;
 }
+
 :root {
   --color-roxo: #555086;
   --font-principal: "Poppins";
-  --font-inter: "Inter";
+  --font-roboto: "Roboto";
+  --font-open-sans: "Open Sans";
+  --font-montserrat: "Montserrat";
 }
 
 .bg-principal {
@@ -64,15 +69,19 @@ nav ul {
   font-family: var(--font-principal);
 }
 
-.info-ong h1 {
-  max-width: 780px;
+.titulo-ong {
+  font-family: var(--font-montserrat);
+  font-style: normal;
   font-weight: 700;
-  font-size: 48px;
+  font-size: 40px;
+  color: #555086;
 }
 
-.info-ong p {
-  font-weight: 200;
-  font-size: 36px;
+.subtitulo-ong {
+  width: 584px;
+  font-family: var(--font-open-sans);
+  font-size: 20px;
+  color: rgb(51, 51, 51);
 }
 
 .info-ong button {
@@ -82,7 +91,6 @@ nav ul {
   height: 70px;
   background: var(--color-roxo);
   border-radius: 9px;
-  border: none;
   color: white;
   font-family: var(--font-poppins);
   font-weight: 700;
@@ -245,39 +253,56 @@ button {
 
 .sobre-nos {
   background-color: #fff;
-  padding-top: 5%;
-  padding-bottom: 3%;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.box {
+  width: 600px !important;
+  height: 500px !important;
+}
+
+.caption-sobrenos {
+  font-weight: bold;
+  color: #5a4d9d;
+  font-size: 20px;
+  font-family: var(--font-roboto);
+  margin: 0;
 }
 
 .titulo-sobrenos {
+  font-size: 42px;
   font-weight: bold;
-  color: #5a4d9d;
-  font-size: 48px;
-  position: relative;
+  font-family: var(--font-roboto);
+  line-height: 110%;
+  color: #21272A;
 }
 
 .texto-sobrenos {
-  padding-top: 2%;
-  font-size: 30px;
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
   text-align: justify;
+  color: #21272A;
 }
 
-.imagem-circular {
-  border: 5px solid #5a4d9d;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 500px;
-  height: 500px;
+.botao-sobrenos{
+  background-color: var(--color-roxo);
+  padding: 16px;
+  width: 326px;
+  text-align: center;
 }
 
-.imagem-circular img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.botao-sobrenos span {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 /* Processo adoção */
-
 .titulo-adocao {
   font-weight: bold;
   color: #5a4d9d;
@@ -329,14 +354,15 @@ button {
     width: 100%;
     text-align: center;
   }
-  .info-ong h1 {
+  .titulo-ong {
     margin: auto;
   }
 }
 
 @media (max-width: 1200px) {
-  .info-ong p {
+  .subtitulo-ong {
     margin-top: 3%;
+    width: 100%;
   }
 
   .info-ong button {
@@ -349,11 +375,6 @@ button {
 
   .texto-sobrenos {
     font-size: 17px !important;
-  }
-
-  .imagem-circular {
-    width: 400px !important;
-    height: 300px !important;
   }
 
   .footer-esquerda p {
