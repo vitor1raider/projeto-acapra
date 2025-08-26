@@ -17,100 +17,210 @@
 <body>
   <div class="d-flex">
     <!-- Sidebar -->
-    <div class="d-flex flex-column flex-shrink-0 p-2 text-bg-black" style="width: 280px; min-height: 100vh;">
-      <a href="#" class="d-flex align-items-center text-white text-decoration-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="me-2" width="24" height="24" fill="currentColor"
-          class="bi bi-speedometer2" viewBox="0 0 16 16">
-          <path
-            d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z" />
-          <path fill-rule="evenodd"
-            d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3" />
-        </svg>
-        <span class="fs-4" style="font-weight: 700;">Painel ACAPRA</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-auto">
-        <li class="nav-item">
-          <a href="dadosAdm.html" class="nav-link active d-flex align-items-center" aria-current="page">
-            <svg class="me-2" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
-              <path fill="white"
-                d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
-            </svg>
-            Home
-          </a>
-        </li>
-        <li>
-          <a href="cadastrarAnimal.html" class="nav-link active mt-1 d-flex align-items-center">
-            <svg class="me-2" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-              <path fill="white"
-                d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
-            </svg>
-            Cadastrar animais
-          </a>
-        </li>
-
-        <hr>
-        <div class="mt-auto">
-          <a href="login.html" class="btn btn-danger w-100 d-flex align-items-center justify-content-center">
-            <svg class="me-2" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512">
-              <path fill="white"
-                d="M502.6 273.4l-96 96c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L402.1 296H192c-13.3 0-24-10.7-24-24s10.7-24 24-24h210.1l-29.4-29.4c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l96 96c9.4 9.4 9.4 24.6 0 33.9zM192 432h-64V80h64c13.3 0 24-10.7 24-24s-10.7-24-24-24h-64c-35.3 0-64 28.7-64 64v352c0 35.3 28.7 64 64 64h64c13.3 0 24-10.7 24-24s-10.7-24-24-24z" />
-            </svg>
-            Deslogar
-          </a>
-        </div>
-      </ul>
-    </div>
-
-    <!-- Conteúdo principal -->
-    <div class="w-100 mt-5 container">
-      <div class="p-3">
-        <h1>Painel de Administração</h1>
-
-        <div class="row mt-4 g-4">
-          <div class="col-md-4">
-            <div class="card text-white bg-primary h-100">
-              <div class="card-body">
-                <h5 class="card-title">Animais Cadastrados</h5>
-                <p class="card-text fs-3">145</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-white bg-success h-100">
-              <div class="card-body">
-                <h5 class="card-title">Adoções Realizadas</h5>
-                <p class="card-text fs-3">78</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card text-white bg-warning h-100">
-              <div class="card-body">
-                <h5 class="card-title">Disponíveis para Adoção</h5>
-                <p class="card-text fs-3">67</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                Últimos Animais Cadastrados
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">Bolt - 2 anos - Macho - Cachorro</li>
-                <li class="list-group-item">Luna - 1 ano - Fêmea - Gato</li>
-                <li class="list-group-item">Rex - 3 anos - Macho - Cachorro</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+    <nav class="sidebar">
+      <div class="d-flex flex-column flex-shrink-0">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none sidebar-space justify-content-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="me-2" width="24" height="24" fill="#343C6A"
+            class="bi bi-speedometer2" viewBox="0 0 16 16">
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z" />
+            <path fill-rule="evenodd"
+              d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3" />
+          </svg>
+          <span class="fs-4" style="font-weight: 700; color: #343C6A !important;">Acapra</span>
+        </a>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item text-center d-flex">
+            <div class="bar-blue"></div>
+            <a href="dadosAdm.html" class="nav-link d-flex align-items-center" aria-current="page">
+              <svg class="me-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                <path fill="#1814F3"
+                  d="M575.8 255.5c0 18-15 32.1-32 32.1l-32 0 .7 160.2c0 2.7-.2 5.4-.5 8.1l0 16.2c0 22.1-17.9 40-40 40l-16 0c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1L416 512l-24 0c-22.1 0-40-17.9-40-40l0-24 0-64c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32 14.3-32 32l0 64 0 24c0 22.1-17.9 40-40 40l-24 0-31.9 0c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2l-16 0c-22.1 0-40-17.9-40-40l0-112c0-.9 0-1.9 .1-2.8l0-69.7-32 0c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z" />
+              </svg>
+              <span style="color: #1814F3;">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cadastrar" class="nav-link d-flex align-items-center">
+              <svg class="me-3" width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="#B1B1B1"
+                  d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z" />
+              </svg>
+              <span style="color: #B1B1B1; font-weight: 500;">Cadastrar animais</span>
+            </a>
+          </li>
+          <!-- <div class="mt-auto">
+            <a href="login.html" class="btn btn-danger w-100 d-flex align-items-center justify-content-center">
+              <svg class="me-2" width="16" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path fill="white"
+                  d="M502.6 273.4l-96 96c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L402.1 296H192c-13.3 0-24-10.7-24-24s10.7-24 24-24h210.1l-29.4-29.4c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l96 96c9.4 9.4 9.4 24.6 0 33.9zM192 432h-64V80h64c13.3 0 24-10.7 24-24s-10.7-24-24-24h-64c-35.3 0-64 28.7-64 64v352c0 35.3 28.7 64 64 64h64c13.3 0 24-10.7 24-24s-10.7-24-24-24z" />
+              </svg>
+              Deslogar
+            </a>
+          </div> -->
+        </ul>
       </div>
+    </nav>
+
+
+    <style>
+      .main{
+        min-height: 100vh;
+        min-width: 0;
+        background-color: #9ca3af29;
+      }
+
+      .navbar{
+        padding: 15px;
+        background-color: #ffffff;
+        margin-left: 1px;
+      }
+
+      .content{
+        padding: 2.5rem 2.5rem 1.5rem;
+      }
+
+      .sidebar{
+        min-width: 260px;
+        max-width: 260px;
+        transition: margin-left .35s ease-in-out, left .35s ease-in-out, margin-right .35s ease-in-out, right .35s ease-in-out;
+        direction: ltr;
+        background: #ffffff;
+      }
+
+      @media (min-width: 1px) and (max-width: 991.98px) {
+        html:not([data-sidebar-position=right]) .sidebar {
+            margin-left: -260px;
+        }
+      }
+    </style>
+    <!-- Conteúdo principal -->
+    <div class="main d-flex flex-column" style="width: 100%;">
+      <nav class="navbar">
+        <div class="d-flex align-items-center gap-2">
+          <div>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" style="height: 40px; width: 40px;">
+                <!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                <path d="M64 160C64 142.3 78.3 128 96 128L480 128C497.7 128 512 142.3 512 160C512 177.7 497.7 192 480 192L96 192C78.3 192 64 177.7 64 160zM128 320C128 302.3 142.3 288 160 288L544 288C561.7 288 576 302.3 576 320C576 337.7 561.7 352 544 352L160 352C142.3 352 128 337.7 128 320zM512 480C512 497.7 497.7 512 480 512L96 512C78.3 512 64 497.7 64 480C64 462.3 78.3 448 96 448L480 448C497.7 448 512 462.3 512 480z"/>
+              </svg>
+            </span>
+          </div>
+          <div>
+            <input class="form-control shadow-none" type="search" name="" id="" placeholder="Pesquisar">
+          </div>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <div class="img-conta">
+            <img src="/acapra/img/lleo.PNG" alt="Leandro" width="40px;" height="40px">
+          </div>
+          <div>
+            <span>Nome</span>
+          </div>
+        </div>
+      </nav>
+      <main class="content">
+        <div>
+          <h2>Painel de Administração</h2>
+          <div class="row mt-2 g-4">
+            <div class="col-md-4">
+              <div class="card border-0">
+                <div class="card-body py-xl-4">
+                  <div class="d-flex justify-content-center gap-4">
+                    <div class="circle" style="background-color: #8FBDFF;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" style="width: 32px; height: 30px;" fill="#0D6EFD"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M197.4 224C193.5 224 190.2 221.2 189.3 217.4C179.1 175.3 141.2 144 96 144C43 144 0 187 0 240C0 269.1 12.9 295.1 33.3 312.7C37.6 316.4 37.6 323.5 33.3 327.2C12.9 344.8 0 370.9 0 399.9C0 452.9 43 495.9 96 495.9C141.2 495.9 179.1 464.6 189.3 422.5C190.2 418.7 193.5 415.9 197.4 415.9L442.5 415.9C446.4 415.9 449.7 418.7 450.6 422.5C460.8 464.6 498.7 495.9 543.9 495.9C596.9 495.9 639.9 452.9 639.9 399.9C639.9 370.8 627 344.8 606.6 327.2C602.3 323.5 602.3 316.4 606.6 312.7C627 295.1 639.9 269 639.9 240C639.9 187 596.9 144 543.9 144C498.7 144 460.8 175.3 450.6 217.4C449.7 221.2 446.4 224 442.5 224L197.4 224z"/></svg>
+                    </div>
+                    <div>
+                      <h5 class="card-title text-azul-claro">Animais Cadastrados</h5>
+                      <p class="card-text fs-3">145</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card border-0">
+                <div class="card-body py-xl-4">
+                  <div class="d-flex justify-content-center gap-4">
+                    <div class="circle" style="background-color: #5FD29C;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" style="width: 32px; height: 30px;" fill="#198754"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M305 151.1L320 171.8L335 151.1C360 116.5 400.2 96 442.9 96C516.4 96 576 155.6 576 229.1L576 231.7C576 343.9 436.1 474.2 363.1 529.9C350.7 539.3 335.5 544 320 544C304.5 544 289.2 539.4 276.9 529.9C203.9 474.2 64 343.9 64 231.7L64 229.1C64 155.6 123.6 96 197.1 96C239.8 96 280 116.5 305 151.1z"/></svg>
+                    </div>
+                    <div>
+                      <h5 class="card-title text-azul-claro">Adoções Realizadas</h5>
+                      <p class="card-text fs-3">78</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card border-0">
+                <div class="card-body py-xl-4">
+                  <div class="d-flex justify-content-center gap-4">
+                    <div class="circle" style="background-color: #FFEAA9;">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" style="width: 32px; height: 30px;" fill="#FFBF00"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM404.4 276.7L324.4 404.7C320.2 411.4 313 415.6 305.1 416C297.2 416.4 289.6 412.8 284.9 406.4L236.9 342.4C228.9 331.8 231.1 316.8 241.7 308.8C252.3 300.8 267.3 303 275.3 313.6L302.3 349.6L363.7 251.3C370.7 240.1 385.5 236.6 396.8 243.7C408.1 250.8 411.5 265.5 404.4 276.8z"/></svg>
+                    </div>
+                    <div>
+                      <h5 class="card-title text-azul-claro">Disponíveis para Adoção</h5>
+                      <p class="card-text fs-3">67</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card table-responsive-sm mt-4 border-0 px-4">
+            <div class="card-header border-0 bg-body px-0">
+              <div class="row align-items-center justify-content-between p-2">
+                <div class="col-auto">
+                  <h3 class="card-title mb-0">Animais registrados no sistema</h3>
+                </div>
+                <div class="col-12 col-md-auto d-flex align-items-center gap-2">
+                  <label for="search">Buscar: </label>
+                  <input id="search" type="search" class="form-control shadow-none" placeholder="Pesquisar">
+                  <!-- <svg class="svg-inline--fa fa-magnifying-glass search-box-icon" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg> -->
+                </div>
+              </div>
+            </div>
+            <table class="table table-hover my-0">
+              <caption class="px-2">Últimos animais cadastrados</caption>
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Idade</th>
+                  <th scope="col">Sexo</th>
+                  <th scope="col">Tipo</th>
+                </tr>
+              </thead>
+              <tbody class="border-light">
+                <tr >
+                  <td>0</td>
+                  <td>Mimi</td>
+                  <td>1 ano</td>
+                  <td>Fêmea</td>
+                  <td>Gato</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>Bartô</td>
+                  <td>3 meses</td>
+                  <td>Macho</td>
+                  <td>Gato</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Maia</td>
+                  <td>1 ano</td>
+                  <td>Fêmea</td>
+                  <td>Cachorro</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
 </body>
