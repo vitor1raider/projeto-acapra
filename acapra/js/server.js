@@ -35,4 +35,20 @@ app.get('/api/dadosAnimais', (req, res) => {
     res.json(animais);
 })
 
+app.post('/usuarios', async (req, res) => {
+    await prisma.user.create({
+        data: {
+            email: req.body.email,
+            name: req.body.name
+        }
+    })
+
+    res.status(201).json(req.body)
+})
+
+app.get('/usuarios', async (req, res) => {
+    const users = await prisma.user.findMany()
+    res.status(201).json(users)
+})
+
 app.listen(port)
