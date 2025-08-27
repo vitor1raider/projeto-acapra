@@ -1,7 +1,10 @@
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
-import animais from './animais.js'; 
+import animais from './animais.js'
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 // Converte o caminho do arquivo atual 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,6 +15,7 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, '..')));
 app.use(express.json());
+
 
 // Gerenciamento de rotas
 app.get('/', (req, res) => {
