@@ -72,6 +72,7 @@ h1 {
 
 .content {
   padding: 2.5rem 2.5rem 1.5rem;
+  flex: 1;
 }
 
 /* Cards */
@@ -105,9 +106,8 @@ h1 {
     flex-direction: column;
   }
 
-  .text-bg-black {
-    width: 100%;
-    min-height: auto;
+  .acoes {
+    flex-direction: row;
   }
 }
 
