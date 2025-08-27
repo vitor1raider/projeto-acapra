@@ -1,17 +1,31 @@
-function mostrarModal() {
-    const fadeElement = document.querySelector("#fade");
-    const messageElement = document.querySelector("#message");
-    const mensagemErro = document.querySelector("#message p");
-  
-    mensagemErro.innerText = 'Ação inválida';
-  
-    fadeElement.classList.toggle("hide");
-    messageElement.classList.toggle("hide");
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search');
 
-    const closeButton = document.querySelector("#close-message");
-    closeButton.addEventListener("click", () => {
-        mostrarModal();
-        document.querySelector(".loader").style.display = "none";
-        document.querySelector("#btnConsulta").style.display = "inline-block";
+    searchInput.addEventListener('input', (event) => {
+        const value = formatString(event.target.value);
+
+        const tabela = document.getElementsByTagName('table');
+
+        Array.from(tabela).forEach((element) => {
+            const linhas = element.querySelectorAll('tbody tr')
+
+            linhas.forEach((linha) => {
+                const colunas = linha.querySelectorAll('td');
+
+                const corresponde = Array.from(colunas).some(coluna => 
+                    formatString(coluna.textContent).includes(value)
+                );
+
+                linha.style.display = corresponde ? "" : "none";
+            });
+        });
     });
-};
+ });
+
+function formatString(value) {
+  return value
+    .toLowerCase()
+    .trim()
+    .normalize('NFD') // Normaliza para separar os acentos
+    .replace(/[\u0300-\u036f]/g, ''); // Remove os acentos
+}
