@@ -27,7 +27,7 @@ h1 {
 }
 
 .navbar {
-  padding: 15px;
+  padding: 15px !important;
   background-color: #ffffff;
   margin-left: 1px;
 }
