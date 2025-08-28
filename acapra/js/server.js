@@ -36,10 +36,33 @@ app.get('/api/dadosAnimais', (req, res) => {
 })
 
 app.post('/usuarios', async (req, res) => {
-    await prisma.user.create({
+    await prisma.Usuario.create({
         data: {
             email: req.body.email,
-            name: req.body.name
+            nome: req.body.nome,
+            senha: req.body.senha,
+            status: req.body.status
+        }
+    })
+
+    res.status(201).json(req.body)
+})
+
+app.post('/animais', async (req, res) => {
+    await prisma.Animais.create({
+        data: {
+            nome: req.body.nome,
+        especie: req.body.especie,
+        sexo: req.body.sexo,
+        castracao: req.body.castracao,
+        vacina: req.body.vacina,
+        idade: req.body.idade,
+        porte: req.body.porte,
+        status: req.body.status,
+        data_resgate: req.body.data_resgate,
+        observacoes: req.body.observacoes,
+        obersavacoes_medicas: req.body.obersavacoes_medicas,
+        raca: req.body.raca,
         }
     })
 
