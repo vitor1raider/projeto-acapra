@@ -2,6 +2,7 @@ import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient()
 
@@ -31,11 +32,14 @@ app.get('/cadastrar', (req, res) => {
 
 // Endpoint API - Dados dos usuárioss
 app.post('/usuarios', async (req, res) => {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(req.body.senha, saltRounds);
+
     await prisma.Usuario.create({
         data: {
             email: req.body.email,
             nome: req.body.nome,
-            senha: req.body.senha,
+            senha: hashedPassword,
             status: req.body.status
         }
     })
