@@ -1,0 +1,406 @@
+/* Página home */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+.a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --color-roxo: #555086;
+  --font-principal: "Poppins";
+  --font-roboto: "Roboto";
+  --font-open-sans: "Open Sans";
+  --font-montserrat: "Montserrat";
+}
+
+.bg-principal {
+  background-color: #ede2cc !important;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+header .img-logo {
+  width: 150px;
+  height: 180px;
+}
+
+nav ul {
+  font-family: var(--font-poppins);
+  font-weight: 600;
+}
+
+.btnEntrar {
+  background-color: var(--color-roxo);
+  width: 110px;
+  height: 40px;
+  border-radius: 15px 0 0 15px;
+  margin-left: -25px;
+}
+
+.btnEntrar li {
+  color: white;
+  font-family: var(--font-principal);
+}
+
+.btnEntrar a {
+  color: white;
+  text-decoration: none;
+}
+
+.iconEntrar {
+  background-color: white;
+  width: 130px;
+  height: 40px;
+  border-radius: 15px;
+  padding-right: 15px;
+  color: var(--color-roxo);
+}
+
+.info-ong {
+  margin-top: 100px;
+  font-family: var(--font-principal);
+}
+
+.titulo-ong {
+  font-family: var(--font-montserrat);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  color: #555086;
+}
+
+.subtitulo-ong {
+  width: 584px;
+  font-family: var(--font-open-sans);
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+}
+
+.info-ong button {
+  margin-bottom: 150px;
+  margin-top: 130px;
+  width: 370px;
+  height: 70px;
+  background: var(--color-roxo);
+  border-radius: 9px;
+  color: white;
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.img-cachorro {
+  width: 555px;
+}
+
+.divisor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: calc(50% - 20px / 2 - 4px);
+  background: #ede2cc;
+  transform: rotate(-44.98deg);
+  margin-top: -10px;
+}
+
+/* Final home */
+
+.subtitle {
+  font-size: 22px;
+  font-family: var(--font-principal);
+}
+
+.bar {
+  background-color: #ede2cc;
+  width: 100%;
+  height: 5px;
+}
+
+.barSecondary {
+  background-color: #555086;
+  width: 500px;
+  border-radius: 5px;
+  height: 5px;
+}
+
+.bar-categoria {
+  background-color: black;
+  width: 5px;
+  height: 25px;
+}
+
+.filtro-categoria {
+  font-family: var(--font-principal);
+  font-weight: 600;
+}
+
+.card-img {
+  border-radius: 25px 25px 25px 25px !important;
+  width: 100%;
+  box-shadow: 0px 0px 2px #00000038;
+  overflow: hidden;
+}
+
+.box-img {
+  height: 300px;
+}
+
+.info-pet h3 {
+  color: rgb(49, 47, 47);
+  font-weight: 800;
+  font-family: var(--font-principal);
+  font-size: 23px;
+}
+
+.info-pet p {
+  color: rgb(49, 47, 47);
+  font-family: var(--font-principal);
+  font-size: 14px;
+}
+
+.info-pet button {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  background-color: #555086;
+  color: white;
+  border: none;
+  border-radius: 15px;
+}
+
+.filtro-macho {
+  background-color: #84c5ed;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: black;
+}
+
+.filtro-femea {
+  background-color: #f2a7a7;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: black;
+}
+
+.filtro-idade {
+  background-color: #ede2cc;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: black;
+}
+
+button {
+  background-color: rgb(49, 47, 47);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 15px;
+  transition: 0.5s;
+  padding: 10px 30px;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+}
+
+/* FOOTER */
+
+.footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ede2cc;
+  padding: 2%;
+}
+
+.footer div {
+  text-align: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer-bar {
+  background-color: #555086;
+  height: 35px;
+  width: 100%;
+}
+
+.footer-separador {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background-color: #555086;
+}
+
+.footer-direita {
+  text-align: center;
+  justify-content: center;
+}
+
+.footer-logo img {
+  height: 100px;
+  width: 100px;
+}
+
+/* SOBRE NOS */
+
+.sobre-nos {
+  background-color: #fff;
+  padding-top: 15%;
+  padding-bottom: 15%;
+}
+
+.box {
+  width: 600px !important;
+  height: 500px !important;
+}
+
+.caption-sobrenos {
+  font-weight: bold;
+  color: #5a4d9d;
+  font-size: 20px;
+  font-family: var(--font-roboto);
+  margin: 0;
+}
+
+.titulo-sobrenos {
+  font-size: 42px;
+  font-weight: bold;
+  font-family: var(--font-roboto);
+  line-height: 110%;
+  color: #21272a;
+}
+
+.texto-sobrenos {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  text-align: justify;
+  color: #21272a;
+}
+
+.botao-sobrenos {
+  background-color: var(--color-roxo);
+  padding: 16px;
+  width: 326px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.botao-sobrenos span {
+  font-family: var(--font-roboto);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Processo adoção */
+.titulo-adocao {
+  font-weight: bold;
+  color: #5a4d9d;
+  font-size: 48px;
+  position: relative;
+}
+
+.texto-adocao {
+  padding-top: 2%;
+  font-size: 30px;
+  text-align: justify;
+}
+
+.adocao {
+  background-color: #ede2cc;
+  padding: 5%;
+}
+
+.imagem-adocao {
+  overflow: hidden;
+  width: 450px;
+  height: 600px;
+}
+
+@media (max-width: 600px) {
+  .barSecondary {
+    width: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #card-pets {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 992px) {
+  ul {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .img-cachorro {
+    display: none;
+  }
+
+  .info-ong {
+    width: 100%;
+    text-align: center;
+  }
+  .titulo-ong {
+    margin: auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .subtitulo-ong {
+    margin-top: 3%;
+    width: 100%;
+  }
+
+  .info-ong button {
+    margin-top: 100px;
+  }
+
+  .titulo-sobrenos {
+    font-size: 36px !important;
+  }
+
+  .texto-sobrenos {
+    font-size: 17px !important;
+  }
+
+  .footer-esquerda p {
+    font-size: medium !important;
+  }
+
+  .footer-esquerda p:nth-child(2) {
+    font-size: larger !important;
+  }
+}
+
+@media (max-width: 1366px) {
+  .footer-esquerda p {
+    font-size: medium !important;
+  }
+
+  .footer-esquerda p:nth-child(2) {
+    font-size: larger !important;
+  }
+
+  .titulo-sobrenos {
+    font-size: 42px !important;
+  }
+
+  .texto-sobrenos {
+    font-size: 20px !important;
+  }
+}

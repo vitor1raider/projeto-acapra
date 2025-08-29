@@ -1,0 +1,62 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+ url = env("DATABASE_URL")
+}
+
+model Usuario {
+  id_usuario String   @id @default(auto()) @map("_id") @db.ObjectId
+  nome       String
+  email      String   @unique
+  senha      String
+  status     Status   @default(Ativo)
+
+  // Relacionamento
+  animais    Animais[]
+}
+
+model Animais {
+  id_animal           String     @id @default(auto()) @map("_id") @db.ObjectId
+  nome                String
+  especie             String?
+  sexo                Sexo
+  castracao           SimNao
+  vacina              SimNao
+  idade               Int?
+  porte               Porte
+  status              Status     @default(Ativo)
+  data_resgate        DateTime?
+  observacoes         String?
+  obersavacoes_medicas String?
+  raca                String     @default("Raça não definida")
+
+  // Relacionamento (referência ao Usuario)
+  id_usuario String?   @db.ObjectId
+  usuario    Usuario?  @relation(fields: [id_usuario], references: [id_usuario])
+}
+
+// ENUMS
+enum Status {
+  Ativo
+  Inativo
+}
+
+enum Sexo {
+  M
+  F
+}
+
+enum SimNao {
+  Sim
+  Não
+}
+
+enum Porte {
+  Pequeno
+  Médio
+  Grande
+}
