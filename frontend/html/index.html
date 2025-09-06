@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
+    <script src="/frontend/js/scripts.js"></script>
 </head>
 
 <body>
@@ -177,7 +178,7 @@
                         <img src="../img/mimi.PNG" alt="Mimi">
                     </div>
                     <div class="info-pet p-2">
-                        <h3>Mimi</h3>
+                        <h3 id="nomeAnimal">Mimi</h3>
                         <div class="d-flex gap-1">
                             <p class="filtro-femea">Fêmea</p>
                             <p class="filtro-idade">+1 ano</p>
@@ -230,19 +231,17 @@
                             <div class="d-flex" style="gap: 50px;">
                                 <div style="width: 470px;" class="d-flex flex-column justify-content-between">
                                     <div class="d-flex justify-content-between">
-                                        <h1 id="modal-titulo" class="modal-title fs-5"></h1>
+                                        <h4 id="modalAnimalNome" class="nome-animal"></h4>
                                     </div>
-                                    <p><strong>Sobre:</strong> <span id="modal-sobre"></span></p>
-                                    <p><strong>OBS:</strong> <span id="modal-observacao"></span></p>
+                                    <p id="modalSexo">Gato | Macho | 3 meses | Castrado | Vacinado</p>
                                     <p><strong>Negativo para FIV e FELV.</strong></p>
+                                    <p><strong>Sobre:</strong> <span id="modalSobreAnimal"></span></p>
                                     <button type="button" class="btn-adotar" style="width: 200px;">
-                                        <a href="formulario.html" target="_blank" class="a">Me adote!</a>
+                                        <a href="formulario.html" target="_blank" class="a">Quero adotar</a>
                                     </button>
                                 </div>
                                 <div class="imagem">
-                                    <!-- <button class="arrow left">&#10094;</button> -->
                                     <img id="modal-imagem" src="" alt="">
-                                    <!-- <button class="arrow right">&#10095;</button> -->
                                 </div>
                             </div>
                         </div>
@@ -275,11 +274,6 @@
         <div class="footer-bar"></div>
     </footer>
     <!-- Footer fim -->
-    <button onclick="buscarAnimais()">Buscar Animais</button>
-    <script src="../js/scripts.js"></script>
-    <script src="../js/animais.js"></script>
-
-
 </body>
 
 </html>
