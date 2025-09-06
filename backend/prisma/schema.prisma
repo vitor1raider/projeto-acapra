@@ -22,16 +22,15 @@ model Usuario {
 model Animais {
   id_animal           String     @id @default(auto()) @map("_id") @db.ObjectId
   nome                String
-  especie             String?
+  especie             Especie
   sexo                Sexo
   castracao           SimNao
   vacina              SimNao
-  idade               Int?
+  idade               String
   porte               Porte
   status              Status     @default(Ativo)
   data_resgate        DateTime?
-  observacoes         String?
-  obersavacoes_medicas String?
+  sobre               String?
   raca                String     @default("Raça não definida")
 
   // Relacionamento (referência ao Usuario)
@@ -40,14 +39,19 @@ model Animais {
 }
 
 // ENUMS
+enum Especie {
+  Gato
+  Cachorro
+}
+
 enum Status {
   Ativo
   Inativo
 }
 
 enum Sexo {
-  M
-  F
+  Macho
+  Fêmea
 }
 
 enum SimNao {
