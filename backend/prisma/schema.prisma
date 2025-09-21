@@ -27,11 +27,9 @@ model Animais {
   castracao           SimNao
   vacina              SimNao
   idade               String
-  porte               Porte
-  status              Status     @default(Ativo)
-  data_resgate        DateTime?
+  status              Status @default(Ativo)
   sobre               String?
-  raca                String     @default("Raça não definida")
+  imagem              String? 
 
   // Relacionamento (referência ao Usuario)
   id_usuario String?   @db.ObjectId
@@ -44,11 +42,6 @@ enum Especie {
   Cachorro
 }
 
-enum Status {
-  Ativo
-  Inativo
-}
-
 enum Sexo {
   Macho
   Fêmea
@@ -59,8 +52,7 @@ enum SimNao {
   Não
 }
 
-enum Porte {
-  Pequeno
-  Médio
-  Grande
+enum Status {
+  Ativo
+  Inativo
 }
