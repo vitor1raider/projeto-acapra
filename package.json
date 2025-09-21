@@ -1,0 +1,23 @@
+{
+  "name": "projeto-acapra",
+  "version": "1.0.0",
+  "description": "O projeto \"Sistema para Adoção Animal - ACAPRA\" consiste em uma aplicação web para Associação Brusquense de Proteção aos Animais (ACAPRA). Este sistema tem como principal objetivo demonstrar para a comunidade os animais disponíveis para adoção de uma organização voluntária.",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "node backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.15.0",
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.15.0"
+  }
+}
