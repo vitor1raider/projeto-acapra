@@ -1,120 +1,60 @@
-const form = document.getElementById('loginForm');
+import { cardAnimal } from './cards.js';
+import { modalAnimal } from './modal.js';
 
-form.addEventListener('submit', async (event) => {
-  event.preventDefault(); // evita o reload da página
-
-  const email = form.email.value;
-  const senha = form.senha.value;
-
-  try {
-    const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, senha })
-    });
-
-    if (response.ok) {
-      window.location.href = 'dadosAdm.html';
-    } else {
-      console.log('Falha no login');
-    }
-  } catch (error) {
-    alert('Erro ao conectar com o servidor.');
-    console.error(error);
-  }
-});
-
-let listaAnimais = [];
-
+// Captura os 3 primeiros animais do banco de dados e exibe na página inicial
 function consultaAnimais() {
-  fetch('http://localhost:3000/animais')
+  fetch('/animais')
     .then(response => response.json())
     .then(animais => {
-      listaAnimais = animais;
       // Pegue os 3 primeiros animais da API
       const animaisCards = animais.slice(0, 3);
       const container = document.getElementById('card-pets');
       container.innerHTML = ''; // Limpa o conteúdo atual
 
       animaisCards.forEach(animal => {
-        const cardHTML = `
-          <div class="card-img d-flex flex-column">
-            <div class="box-img">
-              <img src="${animal.imagem || '../img/default.png'}" alt="${animal.nome}">
-            </div>
-            <div class="info-pet p-2">
-              <h3>${animal.nome}</h3>
-              <div class="d-flex gap-1">
-                <p class="${animal.sexo === 'Fêmea' ? 'filtro-femea' : 'filtro-macho'}">${animal.sexo}</p>
-                <p class="filtro-idade">${animal.idade}</p>
-              </div>
-              <button class="conhecer-animal" data-id="${animal.id}">Conhecer mais</button>
-            </div>
-          </div>
-        `;
-        container.insertAdjacentHTML('beforeend', cardHTML);
+        container.insertAdjacentHTML('beforeend', cardAnimal(animal));
       });
-
-      modalAnimal();
-    }) 
-    .catch(error => {
-      console.error('Erro ao buscar dados dos animais:', error);
-    });
+      botaoConhecerMais()
+  }) 
 }
+consultaAnimais();
 
-function modalAnimal() {
-  const botoesAnimal = document.querySelectorAll('.conhecer-animal');
-  botoesAnimal.forEach(botao => {
-    botao.addEventListener('click', function () {
-      const modalHTML = `
-      <div class="modal fade" id="modalAnimal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl" style="pointer-events: visible;">
-          <div class="modal-body">
-            <div class="adocao-container">
-              <div class="descricao">
-                  <div style="text-align: right; padding-bottom: 15px;">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="d-flex" style="gap: 50px;">
-                    <div style="width: 470px;" class="d-flex flex-column justify-content-between">
-                      <div class="d-flex justify-content-between">
-                        <h4 id="modalAnimalNome" class="nome-animal">${animal.nome}</h4>
-                      </div>
-                      <p id="modalSexo">Gato | Macho | 3 meses | Castrado | Vacinado</p>
-                      <p><strong>Negativo para FIV e FELV.</strong></p>
-                      <p><strong>Sobre:</strong> <span id="modalSobreAnimal"></span></p>
-                      <button type="button" class="btn-adotar" style="width: 200px;">
-                        <a href="formulario.html" target="_blank" class="a">Quero adotar</a>
-                      </button>
-                    </div>
-                    <div class="imagem">
-                      <img id="modal-imagem" src="" alt="">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>`;
-      // const card = this.closest('.card-img');
-      // const nome = card.querySelector('h3').innerText;
-      // const sexo = card.querySelector('.filtro-femea, .filtro-macho').innerText;
-      // const idade = card.querySelector('.filtro-idade').innerText;
-      // const imagem = card.querySelector('img').getAttribute('src');
-
-      // // Preenche o modal com os dados do card
-      // document.getElementById('modalAnimalNome').innerText = nome;
-      // document.getElementById('modalSexo').innerText = sexo;
-
-      document.body.insertAdjacentHTML('beforeend', modalHTML);
-
-      // Abre o modal
-      const modal = new bootstrap.Modal(document.getElementById('modalAnimal'));
-      modal.show();
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  consultaAnimais(); // Carrega os 3 cards ao carregar a página
+// Exibe todos os animais contidos no banco de dados no elemento verTodos
+const verTodos = document.getElementById('verTodos');
+verTodos.addEventListener("click", async () => {
+  verTodos.textContent = ''; 
+  try {
+    fetch('/animais')
+    .then(response => response.json())
+    .then(animais => {
+      const cardPets = document.getElementById('card-pets');
+      cardPets.innerHTML = ''; // Limpa o conteúdo para não multiplicar o conteúdo
+      cardPets.style.flexFlow = "wrap";
+      animais.forEach(animal => {
+        cardPets.insertAdjacentHTML('beforeend', cardAnimal(animal));
+      })
+      botaoConhecerMais()
+    })
+  } catch (error) {
+    console.error(error);
+  }
 });
+
+// Exibe o modal do animal selecionado para ver detalhes
+function botaoConhecerMais() {
+  const botaoConhecerMais = document.querySelectorAll('.conhecer-animal');
+  try {
+    botaoConhecerMais.forEach(botao => {
+    botao.addEventListener("click", () => {
+    const id_animal = botao.getAttribute('data-id')
+    fetch(`http://localhost:3000/animais/${id_animal}`)
+      .then(response => response.json())
+        .then(animal => {
+          modalAnimal(animal)
+        })
+      })
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
