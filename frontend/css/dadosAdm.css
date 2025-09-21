@@ -5,16 +5,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
-/* Estilização geral */
 body {
   background-color: #F5F7FA !important;
   color: #212529;
 }
 
-/* Título da página */
 h1 {
   font-weight: 600;
   color: #1e1e1e;
@@ -54,14 +51,6 @@ h1 {
   transition: margin-left .35s ease-in-out, left .35s ease-in-out, margin-right .35s ease-in-out, right .35s ease-in-out;
   direction: ltr;
   background: #ffffff;
-}
-
-.img-conta {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #555086;
 }
 
 .main {

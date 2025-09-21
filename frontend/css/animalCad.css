@@ -1,7 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f4f4f4;
 }
 
@@ -11,16 +10,12 @@ body {
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 40px auto;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  padding: 20px;
 }
 
 .descricao {
   flex: 1;
-  padding: 40px;
-  color: #333;
 }
 
 .descricao h2 {
@@ -33,6 +28,17 @@ body {
   font-size: 16px;
   margin: 10px 0;
   line-height: 1.5;
+}
+
+.nome-animal {
+  color: #5e4b8b; 
+  font-size: 30px !important; 
+  margin: 0 !important;
+}
+
+.filtro-animal {
+  color: rgb(107 114 128); 
+  margin: 0 !important;
 }
 
 .btn-adotar {
@@ -56,7 +62,6 @@ body {
   flex: 1;
   position: relative;
   display: flex;
-  align-items: center;
   justify-content: center;
   background-color: #ddd;
 }
@@ -66,27 +71,6 @@ body {
   max-width: 500px;
   height: auto;
   object-fit: cover;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  background: rgba(0, 0, 0, 0.2);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.arrow.left {
-  left: 15px;
-}
-
-.arrow.right {
-  right: 15px;
 }
 
 a {
