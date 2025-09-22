@@ -125,7 +125,6 @@ dadosAnimais.addEventListener("click", async function (event) {
       // Se confirmado, remove os dados do animal
       if (mensagemConfirmacao) {
         const id = botaoRemover.dataset.id;
-        console.log("ID do animal clicado:", id);
         try {
           const res = await fetch(`http://localhost:3000/animais/${id}`, {
             method: "DELETE"
@@ -133,7 +132,6 @@ dadosAnimais.addEventListener("click", async function (event) {
 
           if (res.ok) {
             alert("Animal removido com sucesso!");
-            carregarAnimais(); // recarrega a lista
           } else {
             alert("Erro ao remover animal.");
           }
@@ -142,7 +140,6 @@ dadosAnimais.addEventListener("click", async function (event) {
         }
       }
     }
-    console.log(botaoRemover)
 
     // Captura o clique no elemento com a classe .edit-button
     const botaoEdicao = event.target.closest(".edit-button")
@@ -154,7 +151,6 @@ dadosAnimais.addEventListener("click", async function (event) {
         console.log("Em desenvolvimento...")
       }
     }
-    console.log(botaoRemover)
   })
 }
 

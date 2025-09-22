@@ -21,7 +21,7 @@ export function modalAnimal(animal) {
                       <h4 id="modalAnimalNome" class="nome-animal">${animal.nome}</h4>
                     </div>
                     <p id="modalSexo">${animal.especie} | ${animal.sexo} | ${animal.idade}</p>
-                    <p><strong>Sobre:</strong> <span id="modalSobreAnimal">${animal.sobre}</span></p>
+                    <p><strong>Informações:</strong> <span id="modalSobreAnimal">${animal.sobre}</span></p>
                     <button type="button" class="btn-adotar" style="width: 200px;">
                       <a href="/formulario" target="_blank" class="a">Quero adotar</a>
                     </button>
