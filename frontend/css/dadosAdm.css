@@ -1,5 +1,6 @@
 /* Importação de fontes */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -13,13 +14,29 @@ body {
 }
 
 h1 {
+  font-family: 'Roboto';
   font-weight: 600;
   color: #1e1e1e;
   font-size: 2rem;
 }
 
+h5 {
+  font-family: 'Roboto';
+  letter-spacing: -0.05em;
+  font-size: 1rem !important;
+  color: #737373 !important;
+}
+
+h5>p {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 3.25rem !important;
+  color: #272725 !important;
+}
+
 .logo-dashboard {
-  font-weight: 700; 
+  font-weight: 700;
   color: #555086 !important;
 }
 
@@ -40,12 +57,21 @@ h1 {
   background: #555086;
 }
 
+li:hover {
+  background-color: #f3f3f3;
+  cursor: pointer;
+}
+
+ul>li>a>span {
+  font-family: 'Roboto';
+}
+
 /* Sidebar links */
 .sidebar-space {
   padding: 1.15rem 1.5rem;
 }
 
-.sidebar{
+.sidebar {
   min-width: 260px;
   max-width: 260px;
   transition: margin-left .35s ease-in-out, left .35s ease-in-out, margin-right .35s ease-in-out, right .35s ease-in-out;
@@ -64,6 +90,23 @@ h1 {
   flex: 1;
 }
 
+.dadosAnimacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 40px;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+}
+
+.iconesDados {
+  fill: white;
+  width: 25px;
+}
+
 /* Cards */
 .card {
   border: none;
@@ -80,6 +123,49 @@ h1 {
 .card-text {
   font-size: 1.8rem;
   font-weight: 700;
+}
+
+.cardAnimation {
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cardAnimation:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -16px;
+  right: -16px;
+  height: 100vh;
+  width: 32px;
+  transform: scale(1);
+  transform-origin: 50% 50%;
+  transition: transform 0.25s ease-out;
+}
+
+.cardAnimation:hover .card-title,
+.cardAnimation:hover p {
+  transition: all 0.1s ease-out;
+  color: white !important;
+}
+
+.cardAnimation:hover:before {
+  transform: scale(50);
+}
+
+.cardAnimation[data-color="azul"] .dadosAnimacao,
+.cardAnimation[data-color="azul"]:before {
+  background-color: #007bff;
+}
+
+.cardAnimation[data-color="verde"] .dadosAnimacao,
+.cardAnimation[data-color="verde"]:before {
+  background-color: #28a745;
+}
+
+.cardAnimation[data-color="amarelo"] .dadosAnimacao,
+.cardAnimation[data-color="amarelo"]:before {
+  background-color: #ffc107;
 }
 
 /* Inputs e selects focados */
