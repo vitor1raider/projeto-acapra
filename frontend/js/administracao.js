@@ -62,7 +62,7 @@ function limparFormulario() {
 
 // Converte a primeira letra de uma string para maíuscula
 function formataValor(valor) {
-  if (!valor) return ""; 
+  if (!valor) return "";
   return valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
 }
 
@@ -75,9 +75,15 @@ async function inserirDadosTabela() {
         const totalAnimaisCadastrados = document.querySelector('#totalAnimaisCadastrados');
         const dadosAnimais = document.querySelector("#dadosAnimais");
         if (!dadosAnimais) return;
-        if (totalAnimaisCadastrados) {
-          totalAnimaisCadastrados.textContent = `${animais.length}`;
-        }
+        if (totalAnimaisCadastrados) totalAnimaisCadastrados.textContent = `${animais.length}`;
+
+        const totalGatosCadastrados = document.querySelector('#totalGatosCadastrados')
+        const totalCachorrosCadastrados = document.querySelector('#totalCachorrosCadastrados')
+        const quantidadeGatos = animais.filter(item => item.especie === 'Gato').length;
+        const quantidadeCachorros = animais.filter(item => item.especie === 'Cachorro').length;
+        totalGatosCadastrados.textContent = quantidadeGatos;
+        totalCachorrosCadastrados.textContent = quantidadeCachorros;
+
         animais.forEach(animal => {
           const dadosTabela = `
             <tr>
@@ -94,7 +100,7 @@ async function inserirDadosTabela() {
                     d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
                 </svg>
               </div>
-              <div class="edit-button">
+              <div class="edit-button" data-id="${animal.id_animal}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                   class="bi bi-pencil-square" viewBox="0 0 16 16">
                   <path 
@@ -116,7 +122,7 @@ async function inserirDadosTabela() {
 inserirDadosTabela()
 
 if (dadosAnimais) {
-dadosAnimais.addEventListener("click", async function (event) {
+  dadosAnimais.addEventListener("click", async function (event) {
     // Captura o clique no elemento com a classe .remove-button
     const botaoRemover = event.target.closest(".remove-button")
     if (botaoRemover) {
@@ -144,11 +150,22 @@ dadosAnimais.addEventListener("click", async function (event) {
     // Captura o clique no elemento com a classe .edit-button
     const botaoEdicao = event.target.closest(".edit-button")
     if (botaoEdicao) {
+      console.log("Em desenvolvimento")
       // Dialog para confirmar a edição do dado
       const confirmar = confirm("Você deseja editar este animal?");
-      // Se confirmado, edita os dados do animal
-      if (confirmar) {
-        console.log("Em desenvolvimento...")
+
+      if (!confirmar) return;
+
+      try {
+        const response = await fetch(`http://localhost:3000/animais/${idAnimal}`, {
+          method: "GET"
+        })
+          .then(response => response.json())
+          .then(animais => {
+            animais
+          })
+      } catch (error) {
+        console.log("Não foi possível editar o animal: ", error)
       }
     }
   })
