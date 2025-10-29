@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -34,6 +33,26 @@ model Animais {
   // Relacionamento (referência ao Usuario)
   id_usuario String?   @db.ObjectId
   usuario    Usuario?  @relation(fields: [id_usuario], references: [id_usuario])
+}
+
+model FormularioAdocao {
+  id                       String   @id @default(auto()) @map("_id") @db.ObjectId
+  nomeCompleto             String
+  telefoneContato          Int
+  idade                    Int
+  animalInteresse          String
+  enderecoCompleto         String
+  moradia                  String      // casa ou apartamento
+  renda                    Int
+  possuiOutrosAnimais      String     // descrição dos outros animais
+  condicoesManterAnimal    String     // texto sobre condições físicas/mentais/financeiras
+  telasProtecao            SimNao
+  acessoRua                SimNao
+  animaisCastradosVacinados SimNao
+  todosConcordamAdocao     SimNao
+  concordaCastracaoObrigatoria SimNao
+  concordaTaxaAdocao       SimNao
+  criadoEm                 DateTime @default(now())
 }
 
 // ENUMS

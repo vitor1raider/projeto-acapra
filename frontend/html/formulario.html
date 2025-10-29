@@ -15,6 +15,7 @@
 
 <body>
   <div class="container">
+    <form id="formularioAdocao">
     <div class="form-bg-white">
       <h1>Formulário para adoção de animais</h1>
       <p style="color: rgba(255, 0, 0, 0.671);">*Se for <b>menor de idade</b>, seus <b>responsáveis</b> devem
@@ -27,7 +28,7 @@
           </div>
           <div class="w-100">
             <label for="telefone">Qual seu telefone para contato?</label>
-            <input class="form-control shadow-none" type="text" name="telefone" id="telefone">
+            <input class="form-control shadow-none" type="number" name="telefone" id="telefone">
           </div>
         </div>
         <div class="d-flex align-items-end gap-2 w-100">
@@ -37,7 +38,7 @@
           </div>
           <div class="w-100">
             <label for="idade">Qual a sua idade?</label>
-            <input class="form-control shadow-none" type="text" name="idade" id="idade">
+            <input class="form-control shadow-none" type="number" name="idade" id="idade">
           </div>
         </div>
         <div class="d-flex align-items-end gap-2 w-100">
@@ -57,8 +58,8 @@
             <input class="form-control shadow-none" type="text" name="outrosAnimais" id="outrosAnimais">
           </div>
           <div class="w-100">
-            <label for="renda">Qual sua renda?</label>
-            <input class="form-control shadow-none" type="text" name="renda" id="renda" required>
+            <label for="renda">Qual sua renda mensal?</label>
+            <input class="form-control shadow-none" type="number" name="renda" id="renda" required>
           </div>
         </div>
         <div class="w-100">
@@ -123,7 +124,10 @@
           </div>
         </div>
       </div>
+      <button type="submit">SUBMIT</button>
+    </form>
     </div>
+    <script src="../js/formulario.js"></script>
 </body>
 
 </html>

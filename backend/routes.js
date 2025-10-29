@@ -6,6 +6,7 @@ const animalController = require('./src/controllers/animalController')
 const adminController = require('./src/controllers/adminController')
 const loginController = require('./src/controllers/loginController')
 const usuarioController = require('./src/controllers/usuarioController')
+const formularioController = require('./src/controllers/formularioController')
 
 // Endpoint - Página inicial
 route.get('/', homeController.paginaInicial)
@@ -27,5 +28,9 @@ route.get('/usuarios', usuarioController.obterUsuario)
 // Endpoint - Sistema de login
 route.post('/login', loginController.validarLogin)
 route.get('/login', loginController.login)
+
+// Endpoint - Formulário de adoção
+route.post('/formulario', formularioController.criarFormulario)
+route.get('/formulario', formularioController.formulario)
 
 module.exports = route
