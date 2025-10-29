@@ -17,6 +17,9 @@ route.get('/animais', animalController.obterAnimais)
 route.get('/animais/:id_animal', animalController.consultarAnimalID)
 route.delete('/animais/:id_animal', animalController.deletarAnimal);
 
+// Endpoint para editar um animal cadastrado
+route.put('/animais/:id_animal', upload.single('imagem'), animalController.editarAnimal);
+
 // Endpoint - Painel administração
 route.get('/admin', adminController.painelAdministracao)
 route.get('/cadastrar', adminController.animaisCadastrados)

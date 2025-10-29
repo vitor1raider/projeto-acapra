@@ -116,7 +116,7 @@ async function inserirDadosTabela() {
 inserirDadosTabela()
 
 if (dadosAnimais) {
-dadosAnimais.addEventListener("click", async function (event) {
+  dadosAnimais.addEventListener("click", async function (event) {
     // Captura o clique no elemento com a classe .remove-button
     const botaoRemover = event.target.closest(".remove-button")
     if (botaoRemover) {
@@ -148,10 +148,76 @@ dadosAnimais.addEventListener("click", async function (event) {
       const confirmar = confirm("Você deseja editar este animal?");
       // Se confirmado, edita os dados do animal
       if (confirmar) {
-        console.log("Em desenvolvimento...")
+        const id = botaoEdicao.closest("tr").querySelector("td:first-child").textContent;
+      
+        try {
+          // Buscar os dados do animal pelo ID
+          const response = await fetch(`http://localhost:3000/animais/${id}`);
+          const animal = await response.json();
+      
+          // Preencher o formulário com os dados do animal
+          nome.value = animal.nome;
+          idade.value = animal.idade;
+          informacoes.value = animal.sobre;
+          sexo.value = animal.sexo;
+          especie.value = animal.especie;
+          vacinado.value = animal.vacina;
+          castrado.value = animal.castracao;
+      
+          // Atualizar o formulário para enviar uma requisição PUT
+          form.onsubmit = async (event) => {
+            event.preventDefault();
+      
+            const formData = new FormData();
+            formData.append("nome", nome.value);
+            formData.append("idade", idade.value.toString()); // Converte para string
+            formData.append("sobre", informacoes.value);
+            formData.append("sexo", formataValor(sexo.value));
+            formData.append("especie", formataValor(especie.value));
+            formData.append("vacina", formataValor(vacinado.value));
+            formData.append("castracao", formataValor(castrado.value));
+      
+            if (imagem.files.length > 0) {
+              formData.append("imagem", imagem.files[0]);
+            }
+      
+            try {
+              const response = await fetch(`http://localhost:3000/animais/${id}`, {
+                method: "PUT",
+                body: formData,
+              });
+      
+              if (response.ok) {
+                alert("Animal atualizado com sucesso!");
+                limparFormulario();
+                inserirDadosTabela(); // Atualiza a tabela
+              } else {
+                alert("Erro ao atualizar animal");
+              }
+            } catch (error) {
+              console.error("Erro ao atualizar:", error);
+            }
+          };
+        } catch (error) {
+          console.error("Erro ao buscar dados do animal:", error);
+        }
       }
     }
   })
+}
+
+if (dadosAnimais) {
+  dadosAnimais.addEventListener('click', (event) => {
+    const botaoEdicao = event.target.closest('.edit-button');
+    if (!botaoEdicao) return;
+
+    const id = botaoEdicao.closest('tr')?.querySelector('td:first-child')?.textContent?.trim();
+    if (!id) return;
+
+    if (confirm('Você deseja editar este animal?')) {
+      window.location.href = `/cadastrar?id=${id}`;
+    }
+  });
 }
 
 // Filtro de pesquisa dos animais cadastrados
@@ -187,3 +253,53 @@ function formataString(value) {
     .normalize('NFD') // Normaliza para separar os acentos
     .replace(/[\u0300-\u036f]/g, ''); // Remove os acentos
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+  if (window.location.pathname === '/cadastrar') {
+    const q = new URLSearchParams(window.location.search);
+    const editId = q.get('id');
+    if (!editId) return;
+
+    try {
+      const res = await fetch(`/animais/${editId}`);
+      if (!res.ok) throw new Error('Falha ao buscar animal');
+      const animal = await res.json();
+
+      const form = document.getElementById('cadastroAnimal');
+      const nome = document.getElementById('nome');
+      const idade = document.getElementById('idade');
+      const informacoes = document.getElementById('informacoes');
+      const sexo = document.getElementById('sexo');
+      const especie = document.getElementById('especie');
+      const vacinado = document.getElementById('vacinado');
+      const castrado = document.getElementById('castrado');
+      const imagem = document.getElementById('imagem');
+
+      if (nome) nome.value = animal.nome ?? '';
+      if (idade) idade.value = animal.idade ?? '';
+      if (informacoes) informacoes.value = animal.sobre ?? '';
+      if (sexo) sexo.value = animal.sexo ?? '';
+      if (especie) especie.value = animal.especie ?? '';
+      if (vacinado) vacinado.value = animal.vacina ?? '';
+      if (castrado) castrado.value = animal.castracao ?? '';
+
+      if (form) {
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(form);
+          if (imagem && imagem.files.length) fd.set('imagem', imagem.files[0]);
+
+          const resp = await fetch(`/animais/${editId}`, { method: 'PUT', body: fd });
+          if (resp.ok) {
+            alert('Animal atualizado com sucesso!');
+            window.location.href = '/admin';
+          } else {
+            alert('Erro ao atualizar animal');
+          }
+        };
+      }
+    } catch (err) {
+      console.error('Falha ao preencher formulário para edição:', err);
+    }
+  }
+});

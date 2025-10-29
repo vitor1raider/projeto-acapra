@@ -12,17 +12,57 @@ exports.criarAnimal = async (req, res) => {
         sexo: req.body.sexo,
         castracao: req.body.castracao,
         vacina: req.body.vacina,
-        idade: req.body.idade,
+        idade: req.body.idade.toString(), // Converte para string
         sobre: req.body.sobre,
-        imagem: req.file ? req.file.filename : null
-      }
+        imagem: req.file ? req.file.filename : null,
+      },
     });
     res.status(201).json(novoAnimal);
   } catch (error) {
-    console.log("Erro ao salvar animal", error)
+    console.error("Erro ao salvar animal", error);
     res.status(500).json({ mensagem: "Erro ao salvar animal" });
   }
 }
+
+// Função para editar um animal cadastrado
+exports.editarAnimal = async (req, res) => {
+  try {
+    const { id_animal } = req.params;
+
+    // Verifica se o animal existe
+    const animalExistente = await prisma.Animais.findUnique({
+      where: { id_animal },
+    });
+
+    if (!animalExistente) {
+      return res.status(404).json({ mensagem: "Animal não encontrado" });
+    }
+
+    const dadosAtualizados = {
+      nome: req.body.nome,
+      especie: req.body.especie,
+      sexo: req.body.sexo,
+      castracao: req.body.castracao,
+      vacina: req.body.vacina,
+      idade: req.body.idade.toString(), // Converte para string
+      sobre: req.body.sobre,
+    };
+
+    if (req.file) {
+      dadosAtualizados.imagem = req.file.filename;
+    }
+
+    const animalAtualizado = await prisma.Animais.update({
+      where: { id_animal },
+      data: dadosAtualizados,
+    })
+
+    res.status(200).json(animalAtualizado);
+  } catch (error) {
+    console.error("Erro ao editar animal:", error);
+    res.status(500).json({ mensagem: "Erro ao editar animal" });
+  }
+};
 
 // Consulta todos os animais cadastrados
 exports.obterAnimais = async (req, res) => {
