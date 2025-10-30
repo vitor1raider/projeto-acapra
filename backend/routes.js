@@ -13,7 +13,7 @@ route.get('/', homeController.paginaInicial)
 
 // Endpoint - Animal
 route.post('/animais', upload.single('imagem'), animalController.criarAnimal)
-route.get('/animais', animalController.obterAnimais)
+route.get('/animais', animalController.listarAnimais);
 route.get('/animais/:id_animal', animalController.consultarAnimalID)
 route.delete('/animais/:id_animal', animalController.deletarAnimal);
 

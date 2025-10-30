@@ -1,4 +1,4 @@
-const fs = require('fs');  
+const fs = require('fs');
 const prisma = require('../../prisma/prisma.js')
 const path = require('path')
 
@@ -74,7 +74,7 @@ exports.obterAnimais = async (req, res) => {
 exports.consultarAnimalID = async (req, res) => {
   try {
     const { id_animal } = req.params
-    const animal = await prisma.Animais.findUnique({ 
+    const animal = await prisma.Animais.findUnique({
       where: { id_animal }
     })
     if (animal) {
@@ -83,6 +83,27 @@ exports.consultarAnimalID = async (req, res) => {
   } catch (error) {
     console.log("Erro ao consultar pelo ID", error)
     res.status(500).json({ mensagem: "Erro ao consultar pelo ID" });
+  }
+}
+// Lista animais aplicando filtros opcionais via query string
+exports.listarAnimais = async (req, res) => {
+  try {
+    // campos esperados: tipo, sexo, tamanho, idade
+    const allowed = ['especie', 'sexo', 'idade'];
+    const where = {};
+
+    allowed.forEach(k => {
+      if (req.query[k] && req.query[k] !== 'selecione') {
+        // normalizar caso necessário: .toLowerCase(), etc.
+        where[k] = req.query[k];
+      }
+    });
+
+    const animais = await prisma.Animais.findMany({ where });
+    return res.json(animais);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Erro interno' });
   }
 }
 
