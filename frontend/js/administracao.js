@@ -150,24 +150,8 @@ if (dadosAnimais) {
     // Captura o clique no elemento com a classe .edit-button
     const botaoEdicao = event.target.closest(".edit-button")
     if (botaoEdicao) {
-      console.log("Em desenvolvimento")
       // Dialog para confirmar a edição do dado
       const confirmar = confirm("Você deseja editar este animal?");
-<<<<<<< HEAD
-
-      if (!confirmar) return;
-
-      try {
-        const response = await fetch(`http://localhost:3000/animais/${idAnimal}`, {
-          method: "GET"
-        })
-          .then(response => response.json())
-          .then(animais => {
-            animais
-          })
-      } catch (error) {
-        console.log("Não foi possível editar o animal: ", error)
-=======
       // Se confirmado, edita os dados do animal
       if (confirmar) {
         const id = botaoEdicao.closest("tr").querySelector("td:first-child").textContent;
@@ -223,7 +207,6 @@ if (dadosAnimais) {
         } catch (error) {
           console.error("Erro ao buscar dados do animal:", error);
         }
->>>>>>> 93976fd3c34d8e5a724eacaeeb02689847d832bf
       }
     }
   })
@@ -324,5 +307,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (err) {
       console.error('Falha ao preencher formulário para edição:', err);
     }
+  }
+});
+
+const imagemAnimal = document.getElementById('imagem');
+const boxImagem = document.getElementById('boxImagem');
+const previsualizarImagem = document.getElementById('previsualizarImagem');
+
+imagemAnimal.addEventListener('change', function() {
+  const file = imagemAnimal.files[0];
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      previsualizarImagem.src = e.target.result;
+      previsualizarImagem.style.display = "flex";
+      boxImagem.style.display = "flex";
+    };
+
+    reader.readAsDataURL(file);
   }
 });
