@@ -123,10 +123,16 @@
                   </select>
                 </div>
               </div>
-              <label class="btn btn-secondary" style="width: 200px;">
-                <input type="file" name="imagem" id="imagem" hidden accept=".jpg, .jpeg, .png">Escolher foto
-              </label>
-              <button class="btn btn-dark" type="submit" style="width: 250px;">Cadastrar</button>
+              <div class="d-flex gap-2">
+                <label class="btn btn-secondary" style="flex: 1; background: #1e1e1e; border: none;">
+                  <input type="file" name="imagem" id="imagem" hidden accept=".jpg, .jpeg, .png">Escolher foto
+                </label>
+                <button class="btn btn-dark" style="flex: 1; background: #555086; border: none;" type="submit">Cadastrar</button>
+              </div>
+              <div id="boxImagem">
+                <span style="padding: 5px;">Pré-visualização da imagem selecionada</span>
+                <img src id="previsualizarImagem">
+              </div>
             </div>
           </div>
         </form>
