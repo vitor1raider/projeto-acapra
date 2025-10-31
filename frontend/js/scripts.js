@@ -4,8 +4,7 @@ import { modalAnimal } from './modal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- CLÁUSULA DE GUARDA ---
-  // Tenta encontrar o container principal.
+
   const container = document.getElementById('card-pets');
 
 
@@ -17,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const verTodosBtn = document.getElementById('verTodos');
   const filtroEspecie = document.getElementById('especie');
   const filtroSexo = document.getElementById('sexo');
-  const filtroIdade = document.getElementById('idade');
+  const filtroPorte = document.getElementById('porte');
 
 
-  const todosOsFiltros = [filtroEspecie, filtroSexo, filtroIdade];
+  const todosOsFiltros = [filtroEspecie, filtroSexo, filtroPorte];
 
 
   async function buscarEExibirAnimais(limitar = false) {
@@ -33,8 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (filtroSexo.value && filtroSexo.value !== 'selecione') {
         params.append('sexo', filtroSexo.value);
       }
-      if (filtroIdade.value && filtroIdade.value !== 'selecione') {
-        params.append('idade', filtroIdade.value);
+      if (filtroPorte.value && filtroPorte.value !== 'selecione') {
+        params.append('porte', filtroPorte.value);
       }
 
       const query = params.toString();

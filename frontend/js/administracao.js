@@ -155,12 +155,12 @@ if (dadosAnimais) {
       // Se confirmado, edita os dados do animal
       if (confirmar) {
         const id = botaoEdicao.closest("tr").querySelector("td:first-child").textContent;
-      
+
         try {
           // Buscar os dados do animal pelo ID
           const response = await fetch(`http://localhost:3000/animais/${id}`);
           const animal = await response.json();
-      
+
           // Preencher o formulário com os dados do animal
           nome.value = animal.nome;
           idade.value = animal.idade;
@@ -169,11 +169,11 @@ if (dadosAnimais) {
           especie.value = animal.especie;
           vacinado.value = animal.vacina;
           castrado.value = animal.castracao;
-      
+
           // Atualizar o formulário para enviar uma requisição PUT
           form.onsubmit = async (event) => {
             event.preventDefault();
-      
+
             const formData = new FormData();
             formData.append("nome", nome.value);
             formData.append("idade", idade.value.toString()); // Converte para string
@@ -182,17 +182,17 @@ if (dadosAnimais) {
             formData.append("especie", formataValor(especie.value));
             formData.append("vacina", formataValor(vacinado.value));
             formData.append("castracao", formataValor(castrado.value));
-      
+
             if (imagem.files.length > 0) {
               formData.append("imagem", imagem.files[0]);
             }
-      
+
             try {
               const response = await fetch(`http://localhost:3000/animais/${id}`, {
                 method: "PUT",
                 body: formData,
               });
-      
+
               if (response.ok) {
                 alert("Animal atualizado com sucesso!");
                 limparFormulario();
@@ -314,12 +314,12 @@ const imagemAnimal = document.getElementById('imagem');
 const boxImagem = document.getElementById('boxImagem');
 const previsualizarImagem = document.getElementById('previsualizarImagem');
 
-imagemAnimal.addEventListener('change', function() {
+imagemAnimal.addEventListener('change', function () {
   const file = imagemAnimal.files[0];
   if (file) {
     const reader = new FileReader();
 
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       previsualizarImagem.src = e.target.result;
       previsualizarImagem.style.display = "flex";
       boxImagem.style.display = "flex";

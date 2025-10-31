@@ -1,6 +1,7 @@
 const fs = require('fs');
 const prisma = require('../../prisma/prisma.js')
-const path = require('path')
+const path = require('path');
+const { Porte } = require('@prisma/client');
 
 // Endpoint API - Dados dos animais cadastrados
 exports.criarAnimal = async (req, res) => {
@@ -14,6 +15,7 @@ exports.criarAnimal = async (req, res) => {
         vacina: req.body.vacina,
         idade: req.body.idade.toString(), // Converte para string
         sobre: req.body.sobre,
+        porte: req.body.porte,
         imagem: req.file ? req.file.filename : null,
       },
     });
@@ -63,7 +65,6 @@ exports.editarAnimal = async (req, res) => {
     res.status(500).json({ mensagem: "Erro ao editar animal" });
   }
 };
-
 // Consulta todos os animais cadastrados
 exports.obterAnimais = async (req, res) => {
   const animaisCadastrados = await prisma.Animais.findMany()
@@ -88,8 +89,8 @@ exports.consultarAnimalID = async (req, res) => {
 // Lista animais aplicando filtros opcionais via query string
 exports.listarAnimais = async (req, res) => {
   try {
-    // campos esperados: tipo, sexo, tamanho, idade
-    const allowed = ['especie', 'sexo', 'idade'];
+    // campos esperados: tipo, sexo, porte
+    const allowed = ['especie', 'sexo', 'porte'];
     const where = {};
 
     allowed.forEach(k => {
