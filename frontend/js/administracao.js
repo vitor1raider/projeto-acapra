@@ -83,7 +83,99 @@ async function inserirDadosTabela() {
     console.error(error);
   }
 
+<<<<<<< HEAD
   filtroPesquisa();
+=======
+if (dadosAnimais) {
+  dadosAnimais.addEventListener("click", async function (event) {
+    // Captura o clique no elemento com a classe .remove-button
+    const botaoRemover = event.target.closest(".remove-button")
+    if (botaoRemover) {
+      // Dialog para confirmar a remoção do dado
+      const mensagemConfirmacao = confirm("Tem certeza que deseja remover este animal?")
+      // Se confirmado, remove os dados do animal
+      if (mensagemConfirmacao) {
+        const id = botaoRemover.dataset.id;
+        try {
+          const res = await fetch(`http://localhost:3000/animais/${id}`, {
+            method: "DELETE"
+          });
+
+          if (res.ok) {
+            alert("Animal removido com sucesso!");
+          } else {
+            alert("Erro ao remover animal.");
+          }
+        } catch (err) {
+          console.error("Erro ao deletar:", err);
+        }
+      }
+    }
+
+    // Captura o clique no elemento com a classe .edit-button
+    const botaoEdicao = event.target.closest(".edit-button")
+    if (botaoEdicao) {
+      // Dialog para confirmar a edição do dado
+      const confirmar = confirm("Você deseja editar este animal?");
+      // Se confirmado, edita os dados do animal
+      if (confirmar) {
+        const id = botaoEdicao.closest("tr").querySelector("td:first-child").textContent;
+
+        try {
+          // Buscar os dados do animal pelo ID
+          const response = await fetch(`http://localhost:3000/animais/${id}`);
+          const animal = await response.json();
+
+          // Preencher o formulário com os dados do animal
+          nome.value = animal.nome;
+          idade.value = animal.idade;
+          informacoes.value = animal.sobre;
+          sexo.value = animal.sexo;
+          especie.value = animal.especie;
+          vacinado.value = animal.vacina;
+          castrado.value = animal.castracao;
+
+          // Atualizar o formulário para enviar uma requisição PUT
+          form.onsubmit = async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData();
+            formData.append("nome", nome.value);
+            formData.append("idade", idade.value.toString()); // Converte para string
+            formData.append("sobre", informacoes.value);
+            formData.append("sexo", formataValor(sexo.value));
+            formData.append("especie", formataValor(especie.value));
+            formData.append("vacina", formataValor(vacinado.value));
+            formData.append("castracao", formataValor(castrado.value));
+
+            if (imagem.files.length > 0) {
+              formData.append("imagem", imagem.files[0]);
+            }
+
+            try {
+              const response = await fetch(`http://localhost:3000/animais/${id}`, {
+                method: "PUT",
+                body: formData,
+              });
+
+              if (response.ok) {
+                alert("Animal atualizado com sucesso!");
+                limparFormulario();
+                inserirDadosTabela(); // Atualiza a tabela
+              } else {
+                alert("Erro ao atualizar animal");
+              }
+            } catch (error) {
+              console.error("Erro ao atualizar:", error);
+            }
+          };
+        } catch (error) {
+          console.error("Erro ao buscar dados do animal:", error);
+        }
+      }
+    }
+  })
+>>>>>>> 34ffc13 (backup integração do formulario ao frontend)
 }
 
 // Filtro de pesquisa
@@ -125,6 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const ok = confirm('Tem certeza que deseja remover este animal?');
           if (!ok) return;
 
+<<<<<<< HEAD
           const id = botaoRemover.dataset.id;
           try {
             const res = await fetch(`/animais/${id}`, { method: 'DELETE' });
@@ -136,6 +229,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           } catch (err) {
             console.error('Erro ao deletar:', err);
+=======
+      const nome = document.getElementById('nome');
+
+      if (nome) nome.value = animal.nome ?? '';
+      if (idade) idade.value = animal.idade ?? '';
+      if (informacoes) informacoes.value = animal.sobre ?? '';
+      if (sexo) sexo.value = animal.sexo ?? '';
+      if (especie) especie.value = animal.especie ?? '';
+      if (vacinado) vacinado.value = animal.vacina ?? '';
+      if (castrado) castrado.value = animal.castracao ?? '';
+
+      if (form) {
+        form.onsubmit = async (e) => {
+          e.preventDefault();
+          const fd = new FormData(form);
+          if (imagem && imagem.files.length) fd.set('imagem', imagem.files[0]);
+
+          const resp = await fetch(`/animais/${editId}`, { method: 'PUT', body: fd });
+          if (resp.ok) {
+            alert('Animal atualizado com sucesso!');
+            window.location.href = '/admin';
+          } else {
+            alert('Erro ao atualizar animal');
+>>>>>>> 34ffc13 (backup integração do formulario ao frontend)
           }
           return;
         }
@@ -153,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+<<<<<<< HEAD
   // Página cadastrar: configura POST/PUT e preview da imagem
   const form = document.getElementById('cadastroAnimal');
   if (form) {
@@ -258,3 +376,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+=======
+// Coleta os dados preenchidos no formulario
+async function dadosFormularioAdocao() {
+  try {
+    await fetch('/formularios')
+      .then(response => response.json())
+      .then(formulario => {
+      const respostaFormulario = document.querySelector("#respostaFormulario")
+        formulario.forEach(formularios => {
+          const options = {
+            timeZone: "America/Sao_Paulo",
+            hour12: false,
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+          };
+          const dataFormatada = new Date(formularios.criadoEm).toLocaleString("pt-BR", options);
+
+          const dadosFormulario = `
+            <div>
+              <div class="card" style="padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);">
+                <div>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <h3>${formularios.nomeCompleto}</h3>
+                      <p style="font-family: monospace; font-size: 0.75rem; line-height: 1rem;">Identificação do formulário: ${formularios.id}</p>
+                    </div>
+                    <span class="badge text-black">${dataFormatada}</span>
+                  </div>
+                </div>
+                
+                <div class="g-2">
+                  <div class="d-flex justify-content-between">
+                    <div class="w-25"><span class="text-muted">Animal:</span> <span class="fw-semibold">${formularios.animalInteresse}</span></div>
+                    <div class="w-25"><span class="text-muted">Idade:</span> <span class="fw-semibold">${formularios.idade}</span></div>
+                    <div class="w-25"><span class="text-muted">Tel:</span> <span class="fw-semibold">${formularios.telefoneContato}</span></div>
+                    <div class="w-25"><span class="text-muted">Moradia:</span> <span class="fw-semibold">${formularios.moradia}</span></div>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <div class="w-25"><span class="text-muted">Endereço completo:</span> <span class="fw-semibold">${formularios.enderecoCompleto}</span></div>
+                    <div class="w-25"><span class="text-muted">Renda:</span> <span class="fw-semibold">${(formularios.renda).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</span></div>
+                    <div class="w-25 "><span class="text-muted">Possui outros animais?:</span> <span class="fw-semibold">${formularios.possuiOutrosAnimais}</span></div>
+                    <div class="w-25"><span class="text-muted">Condições para manter o animal:</span> <span class="fw-semibold">${formularios.condicoesManterAnimal}</span></div>
+                  </div>
+                </div>
+                
+                <div class="mobile d-flex mt-4">
+                  <span>Telas: ${formularios.telasProtecao}</span>
+                  <span>Castração obrigatória: ${formularios.concordaCastracaoObrigatoria}</span>
+                  <span>Todos da família concordam: ${formularios.todosConcordamAdocao}</span>
+                  <span>Taxa: ${formularios.concordaTaxaAdocao}</span>
+                  <span>Acesso à rua: ${formularios.acessoRua}</span>
+                  <span>Animais castrados/vacinados: ${formularios.animaisCastradosVacinados}</span>
+                </div>
+              </div>
+            </div>
+          `;
+          respostaFormulario.insertAdjacentHTML('beforeend', dadosFormulario);
+        })
+      })
+  } catch (error) {
+    console.log(error)
+  }
+}
+dadosFormularioAdocao()
+
+const boxImagem = document.getElementById('boxImagem');
+const previsualizarImagem = document.getElementById('previsualizarImagem');
+
+if (imagem) {
+  imagem.addEventListener('change', function () {
+    const file = imagem.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        previsualizarImagem.src = e.target.result;
+        previsualizarImagem.style.display = "flex";
+        boxImagem.style.display = "flex";
+      };
+
+      reader.readAsDataURL(file);
+    }
+  });
+}
+>>>>>>> 34ffc13 (backup integração do formulario ao frontend)

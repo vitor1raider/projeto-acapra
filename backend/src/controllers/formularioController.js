@@ -7,6 +7,7 @@ exports.formulario = (req, res) => {
 
 // Função para criar um novo formulário de adoção
 exports.criarFormulario = async (req, res) => {
+<<<<<<< HEAD
   try {
     const novoFormulario = await prisma.FormularioAdocao.create({
       data: {
@@ -36,3 +37,37 @@ exports.criarFormulario = async (req, res) => {
     res.status(500).json({ mensagem: "Erro ao salvar formulário" });
   }
 };
+=======
+    try {
+        const novoFormulario = await prisma.formularioAdocao.create({
+            data: {
+              nomeCompleto: req.body.nomeCompleto,
+              telefoneContato: parseInt(req.body.telefoneContato),
+              idade: parseInt(req.body.idade),
+              animalInteresse: req.body.animalInteresse,
+              enderecoCompleto: req.body.enderecoCompleto,
+              moradia: req.body.moradia,
+              renda: parseInt(req.body.renda),
+              possuiOutrosAnimais: req.body.possuiOutrosAnimais,
+              condicoesManterAnimal: req.body.condicoesManterAnimal,
+              telasProtecao: req.body.telasProtecao === 'sim' ? 'Sim' : 'Não',
+              acessoRua: req.body.acessoRua === 'sim' ? 'Sim' : 'Não',
+              animaisCastradosVacinados: req.body.animaisCastradosVacinados === 'sim' ? 'Sim' : 'Não',
+              todosConcordamAdocao: req.body.todosConcordamAdocao === 'sim' ? 'Sim' : 'Não',
+              concordaCastracaoObrigatoria: req.body.concordaCastracaoObrigatoria === 'sim' ? 'Sim' : 'Não',
+              concordaTaxaAdocao: req.body.concordaTaxaAdocao === 'sim' ? 'Sim' : 'Não',
+            },
+          });
+      res.status(201).json(novoFormulario);
+    } catch (error) {
+      console.error("Erro ao salvar formulário", error);
+      res.status(500).json({ mensagem: "Erro ao salvar formulário" });
+    }
+  };
+
+// Consulta todos os formulários preenchidos
+exports.obterFormularios = async (req, res) => {
+  const formulariosPreenchidos = await prisma.formularioAdocao.findMany()
+  res.status(200).json(formulariosPreenchidos)
+}
+>>>>>>> 34ffc13 (backup integração do formulario ao frontend)

@@ -175,6 +175,11 @@ ul>li>a>span {
   box-shadow: none;
 }
 
+.mobile {
+  font-size: .9rem;
+  gap: 1.5rem;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .d-flex {
@@ -183,6 +188,14 @@ ul>li>a>span {
 
   .acoes {
     flex-direction: row;
+  }
+
+  .g-2 .w-25 {
+    width: 100% !important;
+  }
+
+  .mobile {
+    gap: 0 !important;
   }
 }
 

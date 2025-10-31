@@ -9,3 +9,8 @@ exports.painelAdministracao = (req, res) => {
 exports.animaisCadastrados = (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../../frontend/html', 'cadastrarAnimal.html'))
 }
+
+// Carrega a página formularioAdm.html
+exports.formulariosAdocao = (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../../../frontend/html', 'formularioAdm.html'))
+}

@@ -23,6 +23,7 @@ route.put('/animais/:id_animal', upload.single('imagem'), animalController.edita
 // Endpoint - Painel administração
 route.get('/admin', adminController.painelAdministracao)
 route.get('/cadastrar', adminController.animaisCadastrados)
+route.get('/formularioAdocao', adminController.formulariosAdocao)
 
 // Endpoint - Usuários
 route.post('/usuarios', usuarioController.criarUsuario)
@@ -35,5 +36,6 @@ route.get('/login', loginController.login)
 // Endpoint - Formulário de adoção
 route.post('/formulario', formularioController.criarFormulario)
 route.get('/formulario', formularioController.formulario)
+route.get('/formularios', formularioController.obterFormularios)
 
 module.exports = route
