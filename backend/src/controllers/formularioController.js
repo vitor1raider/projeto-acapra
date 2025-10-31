@@ -27,7 +27,10 @@ exports.criarFormulario = async (req, res) => {
               concordaTaxaAdocao: req.body.concordaTaxaAdocao === 'sim' ? 'Sim' : 'Não',
             },
           });
-      res.status(201).json(novoFormulario);
+      res.status(201).json({
+        mensagem: "Formulário enviado com sucesso!",
+        data: novoFormulario
+      });
     } catch (error) {
       console.error("Erro ao salvar formulário", error);
       res.status(500).json({ mensagem: "Erro ao salvar formulário" });
