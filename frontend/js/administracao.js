@@ -7,10 +7,11 @@ const especie = document.getElementById("especie");
 const vacinado = document.getElementById("vacinado");
 const castrado = document.getElementById("castrado");
 const imagem = document.getElementById("imagem");
+const porte = document.getElementById("porte");
 
 const dadosAnimais = document.querySelector("#dadosAnimais");
 
-// Helpers
+
 function formataValor(valor) {
   if (!valor) return "";
   return valor.charAt(0).toUpperCase() + valor.slice(1).toLowerCase();
@@ -139,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        // Editar: redireciona sem popup duplicado
         const botaoEdicao = event.target.closest('.edit-button');
         if (botaoEdicao) {
           const id = botaoEdicao.closest('tr')?.querySelector('td:first-child')?.textContent?.trim()
@@ -163,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const vacinado = document.getElementById('vacinado');
     const castrado = document.getElementById('castrado');
     const imagem = document.getElementById('imagem');
+    const porte = document.getElementById('porte');
 
     // Preview da imagem (com guard)
     const boxImagem = document.getElementById('boxImagem');
@@ -193,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
       fd.append('especie', formataValor(especie?.value ?? ''));
       fd.append('vacina', formataValor(vacinado?.value ?? ''));
       fd.append('castracao', formataValor(castrado?.value ?? ''));
+      fd.append('porte', formataValor(porte?.value ?? ''));
       if (imagem && imagem.files.length > 0) fd.append('imagem', imagem.files[0]);
 
       try {
@@ -225,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (especie) especie.value = animal.especie ?? '';
           if (vacinado) vacinado.value = animal.vacina ?? '';
           if (castrado) castrado.value = animal.castracao ?? '';
+          if (porte) porte.value = animal.porte ?? '';
 
           form.onsubmit = async (e) => {
             e.preventDefault();
@@ -236,6 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fd.append('especie', formataValor(especie?.value ?? ''));
             fd.append('vacina', formataValor(vacinado?.value ?? ''));
             fd.append('castracao', formataValor(castrado?.value ?? ''));
+            fd.append('porte', formataValor(porte?.value ?? ''));
             if (imagem && imagem.files.length > 0) fd.append('imagem', imagem.files[0]);
 
             try {
@@ -255,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })();
     }
-  } 
+  }
 });
 // Coleta os dados preenchidos no formulario
 async function dadosFormularioAdocao() {
@@ -263,7 +267,7 @@ async function dadosFormularioAdocao() {
     await fetch('/formularios')
       .then(response => response.json())
       .then(formulario => {
-      const respostaFormulario = document.querySelector("#respostaFormulario")
+        const respostaFormulario = document.querySelector("#respostaFormulario")
         formulario.forEach(formularios => {
           const options = {
             timeZone: "America/Sao_Paulo",

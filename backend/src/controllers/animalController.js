@@ -96,7 +96,6 @@ exports.listarAnimais = async (req, res) => {
 
     allowed.forEach(k => {
       if (req.query[k] && req.query[k] !== 'selecione') {
-        // normalizar caso necessário: .toLowerCase(), etc.
         where[k] = req.query[k];
       }
     });

@@ -55,13 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (limitar) {
         animais = animais.slice(0, 3);
-        verTodosBtn.style.display = 'block'; // Mostra o botão "Ver Todos"
+        verTodosBtn.style.display = 'block';
       } else {
-        verTodosBtn.style.display = 'none'; // Esconde o botão "Ver Todos"
+        verTodosBtn.style.display = 'none';
         container.style.flexFlow = 'wrap';
       }
 
-      // 2e. Renderiza os cards
+
       if (animais.length === 0) {
         container.innerHTML = '<p class="text-center w-100">Nenhum animal encontrado com esses filtros.</p>';
       } else {
@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // 2f. Re-adiciona os eventos de clique para os modais
       botaoConhecerMais();
 
     } catch (error) {
@@ -79,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 3. Função para abrir o Modal ---
   function botaoConhecerMais() {
     const botaoConhecerMais = document.querySelectorAll('.conhecer-animal');
     try {
@@ -99,28 +97,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 4. Adiciona os Event Listeners ---
+  buscarEExibirAnimais(true);
 
-  // Ao carregar a página, busca os 3 primeiros animais (sem filtro)
-  buscarEExibirAnimais(true); // true = limitar a 3
 
-  // Ao clicar em "Ver Todos", busca TODOS os animais (sem filtro)
   verTodosBtn.addEventListener("click", () => {
-    // Limpa os filtros para "selecione" para garantir que todos venham
     todosOsFiltros.forEach(filtro => {
-      if (filtro) { // <--- ADICIONE ESTA LINHA
+      if (filtro) {
         filtro.value = 'selecione';
-      } // <--- E ESTA LINHA
+      }
     });
-    buscarEExibirAnimais(false); // false = não limitar
+    buscarEExibirAnimais(false);
   });
 
 
   todosOsFiltros.forEach(filtro => {
-    if (filtro) { // <--- ADICIONE ESTA LINHA
+    if (filtro) {
       filtro.addEventListener('change', () => {
-        buscarEExibirAnimais(false); // false = não limitar
+        buscarEExibirAnimais(false);
       });
-    } // <--- E ESTA LINHA
+    }
   });
-}); // Fim do 'DOMContentLoaded'
+}); 

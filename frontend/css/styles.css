@@ -197,6 +197,13 @@ nav ul {
   color: black;
 }
 
+.filtro-porte {
+  background-color: #b6f7b6;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: black;
+}
+
 #verTodos {
   cursor: pointer;
 }
@@ -365,11 +372,11 @@ button {
     width: 100% !important;
   }
 
-  .descricao > div:nth-of-type(2) {
+  .descricao>div:nth-of-type(2) {
     flex-direction: column-reverse !important;
   }
 
-  .descricao > div:nth-of-type(2) > div {
+  .descricao>div:nth-of-type(2)>div {
     width: 100% !important;
   }
 
@@ -396,6 +403,7 @@ button {
     width: 100%;
     text-align: center;
   }
+
   .titulo-ong {
     margin: auto;
   }

@@ -9,6 +9,7 @@ export function cardAnimal(animal) {
         <div class="d-flex gap-1">
           <p class="${animal.sexo === 'Fêmea' ? 'filtro-femea' : 'filtro-macho'}">${animal.sexo}</p>
           <p class="filtro-idade">${animal.idade}</p>
+          <p class="filtro-porte">${animal.porte}</p>
         </div>
         <button class="conhecer-animal" data-id="${animal.id_animal}">Conhecer mais</button>
       </div>
