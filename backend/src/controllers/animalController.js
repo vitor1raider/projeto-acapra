@@ -48,6 +48,7 @@ exports.editarAnimal = async (req, res) => {
       vacina: req.body.vacina,
       idade: req.body.idade.toString(), // Converte para string
       sobre: req.body.sobre,
+      porte: req.body.porte,
     };
 
     if (req.file) {

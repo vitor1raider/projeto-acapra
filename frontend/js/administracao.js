@@ -7,6 +7,7 @@ const especie = document.getElementById("especie");
 const vacinado = document.getElementById("vacinado");
 const castrado = document.getElementById("castrado");
 const imagem = document.getElementById("imagem");
+const porte = document.getElementById("porte");
 
 const dadosAnimais = document.querySelector("#dadosAnimais");
 
@@ -22,6 +23,7 @@ if (form) {
     formData.append("especie", formataValor(especie.value));
     formData.append("vacina", formataValor(vacinado.value));
     formData.append("castracao", formataValor(castrado.value));
+    formData.append("porte", formataValor(porte.value));
 
     if (imagem.files.length > 0) {
       formData.append("imagem", imagem.files[0]);
@@ -55,6 +57,7 @@ function limparFormulario() {
   especie.value = "";
   vacinado.value = "";
   castrado.value = "";
+  porte.value = "";
 
   // Coloca o foco no input de nome
   nome.focus()
@@ -169,6 +172,7 @@ if (dadosAnimais) {
           especie.value = animal.especie;
           vacinado.value = animal.vacina;
           castrado.value = animal.castracao;
+          porte.value = animal.porte;
 
           // Atualizar o formulário para enviar uma requisição PUT
           form.onsubmit = async (event) => {
@@ -182,6 +186,7 @@ if (dadosAnimais) {
             formData.append("especie", formataValor(especie.value));
             formData.append("vacina", formataValor(vacinado.value));
             formData.append("castracao", formataValor(castrado.value));
+            formData.append("porte", formataValor(porte.value));
 
             if (imagem.files.length > 0) {
               formData.append("imagem", imagem.files[0]);
@@ -280,6 +285,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const vacinado = document.getElementById('vacinado');
       const castrado = document.getElementById('castrado');
       const imagem = document.getElementById('imagem');
+      const porte = document.getElementById('porte');
 
       if (nome) nome.value = animal.nome ?? '';
       if (idade) idade.value = animal.idade ?? '';
@@ -288,6 +294,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (especie) especie.value = animal.especie ?? '';
       if (vacinado) vacinado.value = animal.vacina ?? '';
       if (castrado) castrado.value = animal.castracao ?? '';
+      if (porte) porte.value = animal.porte ?? '';
 
       if (form) {
         form.onsubmit = async (e) => {
