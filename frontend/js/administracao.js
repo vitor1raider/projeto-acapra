@@ -8,7 +8,6 @@ const vacinado = document.getElementById("vacinado");
 const castrado = document.getElementById("castrado");
 const imagem = document.getElementById("imagem");
 
-
 const dadosAnimais = document.querySelector("#dadosAnimais");
 
 // Helpers
@@ -70,9 +69,9 @@ async function inserirDadosTabela() {
               </svg>
             </div>
             <div class="edit-button" data-id="${animal.id_animal}">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.46 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0z"/>
-                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11A1.5 1.5 0 0 0 15 13.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11A.5.5 0 0 1 2 13.5v-11A.5.5 0 0 1 2.5 2H9a.5.5 0 0 0 0-1H2.5z"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                <path fill-rule="evenodd"d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
               </svg>
             </div>
           </td>
@@ -83,99 +82,7 @@ async function inserirDadosTabela() {
     console.error(error);
   }
 
-<<<<<<< HEAD
   filtroPesquisa();
-=======
-if (dadosAnimais) {
-  dadosAnimais.addEventListener("click", async function (event) {
-    // Captura o clique no elemento com a classe .remove-button
-    const botaoRemover = event.target.closest(".remove-button")
-    if (botaoRemover) {
-      // Dialog para confirmar a remoção do dado
-      const mensagemConfirmacao = confirm("Tem certeza que deseja remover este animal?")
-      // Se confirmado, remove os dados do animal
-      if (mensagemConfirmacao) {
-        const id = botaoRemover.dataset.id;
-        try {
-          const res = await fetch(`http://localhost:3000/animais/${id}`, {
-            method: "DELETE"
-          });
-
-          if (res.ok) {
-            alert("Animal removido com sucesso!");
-          } else {
-            alert("Erro ao remover animal.");
-          }
-        } catch (err) {
-          console.error("Erro ao deletar:", err);
-        }
-      }
-    }
-
-    // Captura o clique no elemento com a classe .edit-button
-    const botaoEdicao = event.target.closest(".edit-button")
-    if (botaoEdicao) {
-      // Dialog para confirmar a edição do dado
-      const confirmar = confirm("Você deseja editar este animal?");
-      // Se confirmado, edita os dados do animal
-      if (confirmar) {
-        const id = botaoEdicao.closest("tr").querySelector("td:first-child").textContent;
-
-        try {
-          // Buscar os dados do animal pelo ID
-          const response = await fetch(`http://localhost:3000/animais/${id}`);
-          const animal = await response.json();
-
-          // Preencher o formulário com os dados do animal
-          nome.value = animal.nome;
-          idade.value = animal.idade;
-          informacoes.value = animal.sobre;
-          sexo.value = animal.sexo;
-          especie.value = animal.especie;
-          vacinado.value = animal.vacina;
-          castrado.value = animal.castracao;
-
-          // Atualizar o formulário para enviar uma requisição PUT
-          form.onsubmit = async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData();
-            formData.append("nome", nome.value);
-            formData.append("idade", idade.value.toString()); // Converte para string
-            formData.append("sobre", informacoes.value);
-            formData.append("sexo", formataValor(sexo.value));
-            formData.append("especie", formataValor(especie.value));
-            formData.append("vacina", formataValor(vacinado.value));
-            formData.append("castracao", formataValor(castrado.value));
-
-            if (imagem.files.length > 0) {
-              formData.append("imagem", imagem.files[0]);
-            }
-
-            try {
-              const response = await fetch(`http://localhost:3000/animais/${id}`, {
-                method: "PUT",
-                body: formData,
-              });
-
-              if (response.ok) {
-                alert("Animal atualizado com sucesso!");
-                limparFormulario();
-                inserirDadosTabela(); // Atualiza a tabela
-              } else {
-                alert("Erro ao atualizar animal");
-              }
-            } catch (error) {
-              console.error("Erro ao atualizar:", error);
-            }
-          };
-        } catch (error) {
-          console.error("Erro ao buscar dados do animal:", error);
-        }
-      }
-    }
-  })
->>>>>>> 34ffc13 (backup integração do formulario ao frontend)
 }
 
 // Filtro de pesquisa
@@ -217,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
           const ok = confirm('Tem certeza que deseja remover este animal?');
           if (!ok) return;
 
-<<<<<<< HEAD
           const id = botaoRemover.dataset.id;
           try {
             const res = await fetch(`/animais/${id}`, { method: 'DELETE' });
@@ -229,30 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
           } catch (err) {
             console.error('Erro ao deletar:', err);
-=======
-      const nome = document.getElementById('nome');
-
-      if (nome) nome.value = animal.nome ?? '';
-      if (idade) idade.value = animal.idade ?? '';
-      if (informacoes) informacoes.value = animal.sobre ?? '';
-      if (sexo) sexo.value = animal.sexo ?? '';
-      if (especie) especie.value = animal.especie ?? '';
-      if (vacinado) vacinado.value = animal.vacina ?? '';
-      if (castrado) castrado.value = animal.castracao ?? '';
-
-      if (form) {
-        form.onsubmit = async (e) => {
-          e.preventDefault();
-          const fd = new FormData(form);
-          if (imagem && imagem.files.length) fd.set('imagem', imagem.files[0]);
-
-          const resp = await fetch(`/animais/${editId}`, { method: 'PUT', body: fd });
-          if (resp.ok) {
-            alert('Animal atualizado com sucesso!');
-            window.location.href = '/admin';
-          } else {
-            alert('Erro ao atualizar animal');
->>>>>>> 34ffc13 (backup integração do formulario ao frontend)
           }
           return;
         }
@@ -270,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-<<<<<<< HEAD
   // Página cadastrar: configura POST/PUT e preview da imagem
   const form = document.getElementById('cadastroAnimal');
   if (form) {
@@ -374,9 +255,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       })();
     }
-  }
+  } 
 });
-=======
 // Coleta os dados preenchidos no formulario
 async function dadosFormularioAdocao() {
   try {
@@ -443,24 +323,3 @@ async function dadosFormularioAdocao() {
   }
 }
 dadosFormularioAdocao()
-
-const boxImagem = document.getElementById('boxImagem');
-const previsualizarImagem = document.getElementById('previsualizarImagem');
-
-if (imagem) {
-  imagem.addEventListener('change', function () {
-    const file = imagem.files[0];
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = function (e) {
-        previsualizarImagem.src = e.target.result;
-        previsualizarImagem.style.display = "flex";
-        boxImagem.style.display = "flex";
-      };
-
-      reader.readAsDataURL(file);
-    }
-  });
-}
->>>>>>> 34ffc13 (backup integração do formulario ao frontend)

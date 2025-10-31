@@ -36,12 +36,9 @@ exports.editarAnimal = async (req, res) => {
       where: { id_animal },
     });
 
-    console.log(animalExistente)
     if (!animalExistente) {
       return res.status(404).json({ mensagem: "Animal não encontrado" });
     }
-
-    console.log('Corpo da requisição:', JSON.stringify(req.body));
 
     const dadosAtualizados = {
       nome: req.body.nome,
@@ -64,8 +61,6 @@ exports.editarAnimal = async (req, res) => {
     })
 
     res.status(200).json(animalAtualizado);
-    console.log(dadosAtualizados)
-    console.log(animalAtualizado)
   } catch (error) {
     console.error("Erro ao editar animal:", error);
     res.status(500).json({ mensagem: "Erro ao editar animal" });

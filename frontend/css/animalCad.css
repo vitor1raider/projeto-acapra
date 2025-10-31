@@ -58,19 +58,15 @@ body {
   background-color: #483777;
 }
 
-.imagem {
-  flex: 1;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  background-color: #ddd;
+.imagem-responsividade {
+  height: 225px;
+  width: 30%;
 }
 
-.imagem img {
+.imagem-responsividade img {
   width: 100%;
   max-width: 500px;
-  height: auto;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 a {

@@ -262,8 +262,8 @@ button {
 }
 
 .box {
-  width: 600px !important;
-  height: 500px !important;
+  width: 60% !important;
+  height: 50% !important;
 }
 
 .caption-sobrenos {
@@ -375,6 +375,15 @@ button {
 
   .btn-adotar {
     width: 100% !important;
+  }
+
+  .contain-responsividade {
+    flex-direction: column;
+  }
+
+  .sobrenos-responsividade {
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 

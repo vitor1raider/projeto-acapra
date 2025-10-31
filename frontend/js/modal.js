@@ -26,7 +26,7 @@ export function modalAnimal(animal) {
                       <a href="/formulario" target="_blank" class="a">Quero adotar</a>
                     </button>
                   </div>
-                  <div class="imagem">
+                  <div class="imagem-responsividade">
                     <img id="modal-imagem" src="http://localhost:3000/uploads/${animal.imagem}" alt="${animal.nome}">
                   </div>
                 </div>
